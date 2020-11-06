@@ -42,10 +42,10 @@ class PretestsCheck
     url = URI.parse(path)
     req = Net::HTTP.new(url.host, url.port)
     req.use_ssl = (url.scheme == 'https')
-    path = if !url.path.empty?
-             url.path
-           else
+    path = if url.path.empty?
              '/'
+           else
+             url.path
            end
     res = req.request_get(path)
     res.code != '404'
