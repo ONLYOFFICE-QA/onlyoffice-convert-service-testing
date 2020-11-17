@@ -18,15 +18,15 @@ class PalladiumHelper
     "#{@palladium.result_set_id}"
   end
 
-  def add_result_and_log(example, file_data = nil)
-    result = add_result(example, file_data)
+  def add_result_and_log(example, file_data = nil, server_response = nil)
+    result = add_result(example, file_data, server_response)
     OnlyofficeLoggerHelper.log("Test is #{result['status']['name']}")
     OnlyofficeLoggerHelper.log(get_result_set_link)
   end
 
-  def add_result(example, file_data = nil)
+  def add_result(example, file_data = nil, server_response = nil)
     name = example.metadata[:description]
-    status, comment = get_status_detailed_comment(example, file_data)
+    status, comment = get_status_detailed_comment(example, file_data, parse_server_response(server_response))
     @palladium.set_result(name: name, description: comment, status: status)
   end
 
@@ -38,12 +38,15 @@ class PalladiumHelper
   # @example status, comment = get_status_detailed_comment(example, file_data)
   # @return
   #   [status] test status
-  #   [comment.to_json] comment about test status and image size
-  def get_status_detailed_comment(example, image_size = nil)
+  #   [comment.to_json] comment about test status and image size or server responce
+  def get_status_detailed_comment(example, image_size = nil, server_response = nil)
     status, comment = get_status(example)
     if image_size
       comment = { "describer": [{ "title": 'comment', "value": comment }] }
       comment[:subdescriber] = [{ "title": 'image size (byte)', "value": image_size }]
+    elsif server_response
+      comment = { "describer": [{ "title": 'comment', "value": comment }] }
+      comment[:subdescriber] = [{ "title": 'server error:', "value": server_response }]
     end
     [status, comment.to_json]
   end
@@ -72,5 +75,16 @@ class PalladiumHelper
       comment += "\n#{exception}"
     end
     [result, comment]
+  end
+
+  # Parse server responce
+  # @param
+  # server_response [string] server response
+  # @return
+  # If the server response contains an error text, then return the short error text
+  # Else return nil
+  def parse_server_response(server_response)
+    response = %r{<Error>.[1-8]</Error>}.match(server_response)
+    response&.to_s
   end
 end
