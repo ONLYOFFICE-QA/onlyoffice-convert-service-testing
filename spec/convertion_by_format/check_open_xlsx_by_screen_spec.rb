@@ -6,7 +6,7 @@ palladium = PalladiumHelper.new(DocumentServerHelper.get_version, 'Convert XLSX'
 result_sets = palladium.get_result_sets(StaticData::POSITIVE_STATUSES)
 files = s3.get_files_by_prefix('xlsx')
 describe 'Convert docx files by convert service' do
-  before :each do
+  before do
     @image_size = nil
     @server_response = nil
   end
