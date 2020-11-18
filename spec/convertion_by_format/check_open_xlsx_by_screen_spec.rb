@@ -7,8 +7,7 @@ result_sets = palladium.get_result_sets(StaticData::POSITIVE_STATUSES)
 files = s3.get_files_by_prefix('xlsx')
 describe 'Convert docx files by convert service' do
   before do
-    @image_size = nil
-    @server_response = nil
+    @metadata = nil
   end
   (files - result_sets.map { |result_set| "xlsx/#{result_set}" }).each do |file_path|
     it File.basename(file_path) do
@@ -20,16 +19,16 @@ describe 'Convert docx files by convert service' do
       skip 'Timeout error' if file_path == 'xlsx/50000strings.xlsx'
       skip 'Timeout error' if file_path == 'xlsx/Hasil Treasure 2010 Season 2.xlsx'
       s3.download_file_by_name(file_path, './files_tmp')
-      @server_response = converter.perform_convert(url: file_uri(file_path), outputtype: 'png')
-      expect(@server_response[:url].nil?).to be_falsey
-      expect(@server_response[:url].empty?).to be_falsey
-      @image_size = ImageHelper.get_image_size(@server_response[:url])
-      expect(@image_size).to be > StaticData::MIN_XLSX_IMAGE_SIZE
+      @metadata = converter.perform_convert(url: file_uri(file_path), outputtype: 'png')
+      expect(@metadata[:url].nil?).to be_falsey
+      expect(@metadata[:url].empty?).to be_falsey
+      @metadata[:size] = ImageHelper.get_image_size(@metadata[:url])
+      expect(@metadata[:size]).to be > StaticData::MIN_XLSX_IMAGE_SIZE
     end
   end
 
   after :each do |example|
     FileHelper.clear_dir('files_tmp')
-    palladium.add_result_and_log(example, @image_size, @server_response[:data])
+    palladium.add_result_and_log(example, @metadata[:size], @metadata[:data])
   end
 end
