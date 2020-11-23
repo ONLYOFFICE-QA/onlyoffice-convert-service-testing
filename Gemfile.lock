@@ -52,7 +52,7 @@ GEM
     onlyoffice_s3_wrapper (0.3.0)
       aws-sdk-s3 (= 1.80.0)
       onlyoffice_file_helper (= 0.3.0)
-    parallel (1.20.0)
+    parallel (1.20.1)
     parser (2.7.2.0)
       ast (~> 2.4.1)
     public_suffix (4.0.6)
