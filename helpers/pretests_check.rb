@@ -8,7 +8,7 @@ class PretestsCheck
     nginx_check = nginx_available?
     s3_check = s3_available?
     unless s3_check && documentserver_check && nginx_check
-      puts "Documentserver check: #{s3_check}"
+      puts "Documentserver check: #{documentserver_check}"
       puts "Nginx check: #{nginx_check}"
       puts "S3 check: #{s3_check}"
       raise 'Pre-test checks is failed!'
