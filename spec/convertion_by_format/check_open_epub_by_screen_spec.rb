@@ -9,7 +9,7 @@ describe 'Convert docx files by convert service' do
   before do
     @metadata = nil
   end
-  (files - result_sets.map { |result_set| "epub``/#{result_set}" }).each do |file_path|
+  (files - result_sets.map { |result_set| "epub/#{result_set}" }).each do |file_path|
     it File.basename(file_path) do
       s3.download_file_by_name(file_path, './files_tmp')
       @metadata = converter.perform_convert(url: file_uri(file_path), outputtype: 'png')
