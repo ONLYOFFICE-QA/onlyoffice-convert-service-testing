@@ -8,7 +8,7 @@ class PretestsCheck
     nginx_check = nginx_available?
     s3_check = s3_available?
     palladium_token = palladium_token?
-    unless s3_check && documentserver_check && nginx_check
+    unless s3_check && documentserver_check && nginx_check && palladium_token
       puts "Documentserver check: #{documentserver_check}"
       puts "Nginx check: #{nginx_check}"
       puts "S3 check: #{s3_check}"
@@ -56,10 +56,12 @@ class PretestsCheck
   end
 
   def self.palladium_token?
-    if !!ENV['PALLADIUM_TOKEN']
-      'true'
-    else !!File.read("#{ENV['HOME']}/.palladium/token")
-         'true'
-    end
+    status = if File.file?("#{ENV['HOME']}/.palladium/token") || !ENV['PALLADIUM_TOKEN'].nil?
+               true
+             else
+               false
+             end
+    OnlyofficeLoggerHelper.log('Palladium token was not found in the "PALLADIUM TOKEN variable" or in the local directory') unless status
+    status
   end
 end
