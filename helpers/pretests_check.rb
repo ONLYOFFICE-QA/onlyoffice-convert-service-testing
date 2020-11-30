@@ -7,10 +7,12 @@ class PretestsCheck
     documentserver_check = documentserver_available?
     nginx_check = nginx_available?
     s3_check = s3_available?
+    palladium_token = palladium_token?
     unless s3_check && documentserver_check && nginx_check
       puts "Documentserver check: #{documentserver_check}"
       puts "Nginx check: #{nginx_check}"
       puts "S3 check: #{s3_check}"
+      puts "Palladium token: #{palladium_token}"
       raise 'Pre-test checks is failed!'
     end
     FileHelper.clear_dir('files_tmp')
@@ -51,5 +53,13 @@ class PretestsCheck
     res.code != '404'
   rescue StandardError
     false
+  end
+
+  def self.palladium_token?
+    if !!ENV['PALLADIUM_TOKEN']
+      'true'
+    else !!File.read("#{ENV['HOME']}/.palladium/token")
+         'true'
+    end
   end
 end
