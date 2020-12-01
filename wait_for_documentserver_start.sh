@@ -1,5 +1,5 @@
 #!/bin/bash
 echo "Sleep for waiting documentserver start"
-sleep 60
+sleep 120
 echo "Waiting is end. Run tests"
 exec rspec
