@@ -56,11 +56,9 @@ class PretestsCheck
   end
 
   def self.palladium_token?
-    status = if File.file?("#{ENV['HOME']}/.palladium/token") || !ENV['PALLADIUM_TOKEN'].nil?
-               true
-             else
-               false
-             end
+    status = false
+    status = true if File.file?("#{ENV['HOME']}/.palladium/token")
+    status = true unless ENV['PALLADIUM_TOKEN'].nil?
     OnlyofficeLoggerHelper.log('Palladium token was not found in the "PALLADIUM TOKEN variable" or in the local directory') unless status
     status
   end
