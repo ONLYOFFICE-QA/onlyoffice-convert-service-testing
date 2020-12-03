@@ -59,8 +59,9 @@ class PretestsCheck
     status = false
     status = true if File.size("#{ENV['HOME']}/.palladium/token") > 1
     status = true unless ENV['PALLADIUM_TOKEN'].nil?
-  rescue Errno::ENOENT
-    OnlyofficeLoggerHelper.log("#{$!}") unless status
     status
+  rescue Errno::ENOENT => e
+    OnlyofficeLoggerHelper.log(e.to_s) unless status
+    false
   end
 end
