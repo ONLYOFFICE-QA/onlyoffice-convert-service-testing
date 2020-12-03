@@ -56,12 +56,11 @@ class PretestsCheck
   end
 
   def self.palladium_token?
-    status = false
-    status = true if File.size("#{ENV['HOME']}/.palladium/token") > 1
-    status = true unless ENV['PALLADIUM_TOKEN'].nil?
-    status
+    return true unless File.read("#{ENV['HOME']}/.palladium/token").strip.empty?
+
+    false
   rescue Errno::ENOENT => e
-    OnlyofficeLoggerHelper.log(e.to_s) unless status
+    OnlyofficeLoggerHelper.log(e.to_s)
     false
   end
 end
