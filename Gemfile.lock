@@ -72,6 +72,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.0)
+    rspec_passed_time_formatter (0.2.0)
     rubocop (1.5.2)
       parallel (~> 1.10)
       parser (>= 2.7.1.5)
@@ -98,6 +99,7 @@ DEPENDENCIES
   onlyoffice_testrail_wrapper!
   palladium!
   rspec
+  rspec_passed_time_formatter
   rubocop
 
 BUNDLED WITH
