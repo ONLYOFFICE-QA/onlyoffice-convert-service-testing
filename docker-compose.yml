@@ -19,8 +19,6 @@ services:
     environment:
       - DOCUMENTSERVER=http://documentserver
       - USE_JWT=no
-    command: ["bash", "./wait_for_documentserver_start.sh"]
+    command: ["ruby", "./helpers/wait_for_documentserver_start.rb"]
     volumes:
       - ./files_tmp/:/convert_service_testing/files_tmp/
-
-
