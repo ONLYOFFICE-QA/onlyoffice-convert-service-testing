@@ -13,7 +13,7 @@ GIT
 
 GIT
   remote: https://github.com/onlyoffice-testing-robot/onlyoffice_testrail_wrapper
-  revision: 015fadd9a0f2b4e98ec67a1890f2b435881298d8
+  revision: 872fc1139d3c501b0166bf61383a55e9c2d8f37a
   specs:
     onlyoffice_testrail_wrapper (0.1.0)
       onlyoffice_bugzilla_helper (~> 0.1)
