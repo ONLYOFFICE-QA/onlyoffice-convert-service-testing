@@ -6,7 +6,7 @@ GIT
 
 GIT
   remote: https://github.com/onlyoffice-testing-robot/onlyoffice_documentserver_conversion_helper.git
-  revision: cc1cc53436433a79b38604860f373a7b824bcc90
+  revision: 4e24ffad0c2081f303f3e088c996643c9d248ccc
   specs:
     onlyoffice_documentserver_conversion_helper (0.1.1)
       jwt (~> 2)
