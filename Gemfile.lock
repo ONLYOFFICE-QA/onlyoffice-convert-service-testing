@@ -5,13 +5,6 @@ GIT
     palladium (0.3.4)
 
 GIT
-  remote: https://github.com/onlyoffice-testing-robot/onlyoffice_documentserver_conversion_helper.git
-  revision: 4e24ffad0c2081f303f3e088c996643c9d248ccc
-  specs:
-    onlyoffice_documentserver_conversion_helper (0.1.1)
-      jwt (~> 2)
-
-GIT
   remote: https://github.com/onlyoffice-testing-robot/onlyoffice_testrail_wrapper
   revision: 72eb374119a707c2ec6307628a5ec47d562789e1
   specs:
@@ -45,6 +38,8 @@ GEM
     jmespath (1.4.0)
     jwt (2.2.2)
     onlyoffice_bugzilla_helper (0.5.0)
+    onlyoffice_documentserver_conversion_helper (0.2.0)
+      jwt (~> 2)
     onlyoffice_file_helper (0.4.0)
       onlyoffice_logger_helper (~> 1)
       rubyzip (~> 2)
@@ -93,7 +88,7 @@ PLATFORMS
 
 DEPENDENCIES
   addressable
-  onlyoffice_documentserver_conversion_helper!
+  onlyoffice_documentserver_conversion_helper
   onlyoffice_logger_helper
   onlyoffice_s3_wrapper (= 0.4.0)
   onlyoffice_testrail_wrapper!
@@ -103,4 +98,4 @@ DEPENDENCIES
   rubocop
 
 BUNDLED WITH
-   2.1.4
+   2.2.6
