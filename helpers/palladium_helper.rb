@@ -42,11 +42,11 @@ class PalladiumHelper
   def get_status_detailed_comment(example, image_size = nil, server_response = nil)
     status, comment = get_status(example)
     if image_size
-      comment = { "describer": [{ "title": 'comment', "value": comment }] }
-      comment[:subdescriber] = [{ "title": 'image size (byte)', "value": image_size }]
+      comment = { describer: [{ title: 'comment', value: comment }] }
+      comment[:subdescriber] = [{ title: 'image size (byte)', value: image_size }]
     elsif server_response
-      comment = { "describer": [{ "title": 'comment', "value": comment }] }
-      comment[:subdescriber] = [{ "title": 'server error:', "value": server_response }]
+      comment = { describer: [{ title: 'comment', value: comment }] }
+      comment[:subdescriber] = [{ title: 'server error:', value: server_response }]
     end
     [status, comment.to_json]
   end
