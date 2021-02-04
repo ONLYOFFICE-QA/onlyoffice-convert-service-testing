@@ -30,7 +30,9 @@ class PretestsCheck
     random_file_name = "#{Time.now.nsec}.txt"
     FileHelper.create_file("#{StaticData::TMP_FOLDER}/#{random_file_name}")
     status = request_to("#{StaticData.nginx_url}/#{random_file_name}")
-    OnlyofficeLoggerHelper.log("Nginx server on #{StaticData.nginx_url} can not send files fom #{StaticData::TMP_FOLDER} folder") unless status
+    unless status
+      OnlyofficeLoggerHelper.log("Nginx server on #{StaticData.nginx_url} can not send files fom #{StaticData::TMP_FOLDER} folder")
+    end
     status
   end
 
