@@ -4,14 +4,6 @@ GIT
   specs:
     palladium (0.3.4)
 
-GIT
-  remote: https://github.com/onlyoffice-testing-robot/onlyoffice_testrail_wrapper
-  revision: 564bf50ce4cac9ffabb4cd4349f7069bd25dbd32
-  specs:
-    onlyoffice_testrail_wrapper (0.1.0)
-      onlyoffice_bugzilla_helper (~> 0.1)
-      onlyoffice_logger_helper (~> 1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -47,6 +39,9 @@ GEM
     onlyoffice_s3_wrapper (0.4.0)
       aws-sdk-s3 (~> 1)
       onlyoffice_file_helper (~> 0)
+    onlyoffice_testrail_wrapper (0.2.0)
+      onlyoffice_bugzilla_helper (~> 0.1)
+      onlyoffice_logger_helper (~> 1)
     parallel (1.20.1)
     parser (3.0.0.0)
       ast (~> 2.4.1)
@@ -97,7 +92,7 @@ DEPENDENCIES
   onlyoffice_documentserver_conversion_helper
   onlyoffice_logger_helper
   onlyoffice_s3_wrapper
-  onlyoffice_testrail_wrapper!
+  onlyoffice_testrail_wrapper
   palladium!
   rspec
   rspec_passed_time_formatter
@@ -106,4 +101,4 @@ DEPENDENCIES
   rubocop-rspec
 
 BUNDLED WITH
-   2.2.6
+   2.2.11
