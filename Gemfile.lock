@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/flaminestone/palladium.git
-  revision: 5b3fff574d42b9d70306d652cf103d65ca1df3eb
+  revision: 1be681684935a337943f787b4808eed0239822be
   specs:
-    palladium (0.3.4)
+    palladium (1.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -101,4 +101,4 @@ DEPENDENCIES
   rubocop-rspec
 
 BUNDLED WITH
-   2.2.11
+   2.2.14
