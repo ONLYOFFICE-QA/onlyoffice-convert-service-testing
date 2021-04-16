@@ -4,6 +4,10 @@ services:
     image: onlyoffice/4testing-documentserver-ie:latest
     ports:
     - "80:80"
+    environment:
+    - JWT_ENABLED=true
+    - JWT_SECRET=secret
+    - JWT_HEADER=AuthorizationJwt
   nginx:
     image: nginx:latest
     ports:
@@ -18,7 +22,6 @@ services:
       - nginx
     environment:
       - DOCUMENTSERVER=http://documentserver
-      - USE_JWT=no
     command: ["ruby", "./helpers/wait_for_documentserver_start.rb"]
     volumes:
       - ./files_tmp/:/convert_service_testing/files_tmp/
