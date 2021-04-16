@@ -12,7 +12,7 @@ class FileHelper
     FileUtils.touch(filepath)
   end
 
-  # @param [String] Accepts file name
+  # @param file_name [String] Accepts file name
   # @return [String] will return the generated name
   def self.file_rename(file_name)
     file_new_name = Time.now.nsec.to_s + File.extname(file_name)

@@ -45,7 +45,7 @@ RSpec.configure do |config|
 end
 
 # Method returns uri taking the path to the file
-# @param [String] Accepts relative path to file
+# @param file_path [String] Accepts relative path to file
 # @return [String] URI address file in nginx
 # @note Changes the name of a temporary file
 def file_uri(file_path)
