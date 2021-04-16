@@ -9,6 +9,7 @@ Add all keys to dockerfile
 * S3_KEY - is a s3 public key
 * S3_PRIVATE_KEY - is a s3 private key
 * PALLADIUM_TOKEN - token for write result to palladium
+* DOCUMENTSERVER_JWT - JWT key is used by default (see the [documentation](https://helpcenter.onlyoffice.com/installation/docs-community-install-docker.aspx) on configuring the server document)
 
 Do not forget to change documentserver version from docker-compose file (default - **4testing-documentserver-ie:latest**)
 
