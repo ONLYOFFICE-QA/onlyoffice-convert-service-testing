@@ -22,7 +22,7 @@ describe 'Convert html files by convert service' do
     end
   end
 
-  after do |_example|
+  after do |example|
     FileHelper.clear_dir('files_tmp')
     palladium.add_result_and_log(example, @metadata[:size], @metadata[:data])
   end
