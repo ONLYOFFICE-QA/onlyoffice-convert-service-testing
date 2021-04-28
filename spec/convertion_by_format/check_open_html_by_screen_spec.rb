@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../spec_helper'
+require 'spec_helper'
 FileHelper.clear_dir('files_tmp')
 palladium = PalladiumHelper.new(DocumentServerHelper.get_version, 'Convert HTML')
 result_sets = palladium.get_result_sets(StaticData::POSITIVE_STATUSES)
