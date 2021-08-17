@@ -76,4 +76,14 @@ class PretestsCheck
     OnlyofficeLoggerHelper.log(e.to_s)
     false
   end
+<<<<<<< HEAD
+=======
+
+  def self.dir_files_tmp?
+    Dir.mkdir('files_tmp')
+    OnlyofficeLoggerHelper.log("Dir files_tmp created?: #{File.exist? 'files_tmp'}")
+  rescue StandardError => e
+    OnlyofficeLoggerHelper.log(e.to_s)
+  end
+>>>>>>> fixes for rubocop
 end
