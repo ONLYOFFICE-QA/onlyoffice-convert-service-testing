@@ -19,4 +19,13 @@ class FileHelper
     File.rename("files_tmp/#{file_name}", "files_tmp/#{file_new_name}")
     file_new_name
   end
+
+  def self.dir_check_or_create(dir_name)
+    if File.exist? dir_name.to_s
+      puts 'files_tmp exist: true'
+    else
+      Dir.mkdir dir_name.to_s
+    end
+    true
+  end
 end
