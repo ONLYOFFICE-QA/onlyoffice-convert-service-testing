@@ -68,11 +68,9 @@ class PretestsCheck
   end
 
   def self.dir_files_tmp?
-    begin
-      Dir.mkdir("files_tmp")
-      OnlyofficeLoggerHelper.log("Dir files_tmp created?: #{File.exist?'files_tmp'}")
-    rescue StandardError => e
-      OnlyofficeLoggerHelper.log(e.to_s)
-    end
+    Dir.mkdir('files_tmp')
+    OnlyofficeLoggerHelper.log("Dir files_tmp created?: #{File.exist? 'files_tmp'}")
+  rescue StandardError => e
+    OnlyofficeLoggerHelper.log(e.to_s)
   end
 end
