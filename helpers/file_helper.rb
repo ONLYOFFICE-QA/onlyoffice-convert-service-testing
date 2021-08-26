@@ -20,12 +20,12 @@ class FileHelper
     file_new_name
   end
 
-  def self.dir_check_or_create(dir_name)
-    if File.exist? dir_name.to_s
-      puts 'files_tmp exist: true'
+  # @param dir_name [String] Temp dir name
+  def self.check_temp_dir(dir_name)
+    if File.exist? dir_name
+      puts 'temp_dir exist: true'
     else
-      Dir.mkdir dir_name.to_s
+      Dir.mkdir dir_name
     end
-    true
   end
 end
