@@ -19,4 +19,13 @@ class FileHelper
     File.rename("files_tmp/#{file_name}", "files_tmp/#{file_new_name}")
     file_new_name
   end
+
+  # @param dir_name [String] Temp dir name
+  def self.check_temp_dir(dir_name)
+    if File.exist? dir_name
+      puts 'temp_dir exist: true'
+    else
+      Dir.mkdir dir_name
+    end
+  end
 end
