@@ -9,13 +9,21 @@ class PretestsCheck
     s3_check = s3_available?
     palladium_token = palladium_token?
     unless s3_check && documentserver_check && nginx_check && palladium_token
-      puts "Documentserver check: #{documentserver_check}"
-      puts "Nginx check: #{nginx_check}"
-      puts "S3 check: #{s3_check}"
-      puts "Palladium token: #{palladium_token}"
+      colorize_relatively_result "Documentserver check: #{documentserver_check}"
+      colorize_relatively_result "Nginx check: #{nginx_check}"
+      colorize_relatively_result "S3 check: #{s3_check}"
+      colorize_relatively_result "Palladium token: #{palladium_token}"
       raise 'Pre-test checks is failed!'
     end
     FileHelper.clear_dir('files_tmp')
+  end
+
+  def self.colorize_relatively_result(entry)
+    if entry['true']
+      OnlyofficeLoggerHelper.log entry, 32 # green color
+    else
+      OnlyofficeLoggerHelper.log entry, 31 # red color
+    end
   end
 
   def self.documentserver_available?
