@@ -23,9 +23,10 @@ class FileHelper
   # @param dir_name [String] Temp dir name
   def self.check_temp_dir(dir_name)
     if File.exist? dir_name
-      puts 'temp_dir exist: true'
+      puts "Directory #{dir_name} exist?: true"
     else
       Dir.mkdir dir_name
+      puts "Directory #{dir_name} created"
     end
   end
 end

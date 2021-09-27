@@ -4,7 +4,7 @@ require 'net/http'
 # class with methods for check working system before run tests
 class PretestsCheck
   def self.pretests_check
-    files_tmp?
+    FileHelper.check_temp_dir('files_tmp')
     documentserver_check = documentserver_available?
     nginx_check = nginx_available?
     s3_check = s3_available?
