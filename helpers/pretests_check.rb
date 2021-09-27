@@ -4,7 +4,7 @@ require 'net/http'
 # class with methods for check working system before run tests
 class PretestsCheck
   def self.pretests_check
-    FileHelper.check_temp_dir 'files_tmp'
+    dir_files_tmp?
     documentserver_check = documentserver_available?
     nginx_check = nginx_available?
     s3_check = s3_available?
@@ -70,7 +70,7 @@ class PretestsCheck
 
   def self.dir_files_tmp?
     Dir.mkdir('files_tmp')
-    OnlyofficeLoggerHelper.log("Dir files_tmp created?: #{File.exist? 'files_tmp'}")
+    OnlyofficeLoggerHelper.log("Directory files_tmp created?: #{File.exist? 'files_tmp'}")
   rescue StandardError => e
     OnlyofficeLoggerHelper.log(e.to_s)
   end
