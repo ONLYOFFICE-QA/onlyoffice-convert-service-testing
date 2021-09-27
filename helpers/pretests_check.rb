@@ -68,6 +68,8 @@ class PretestsCheck
     false
   end
 
+  # Create directory if it doesn't exist
+  # @return [nil]
   def self.files_tmp?
     Dir.mkdir('files_tmp')
     OnlyofficeLoggerHelper.log("Directory files_tmp created?: #{File.exist? 'files_tmp'}")
