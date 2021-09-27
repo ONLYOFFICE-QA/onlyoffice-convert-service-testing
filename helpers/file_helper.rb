@@ -19,4 +19,17 @@ class FileHelper
     File.rename("files_tmp/#{file_name}", "files_tmp/#{file_new_name}")
     file_new_name
   end
+
+  # The method checks the existence of the directory,
+  # and if it does not exist, creates a new one using the name as a parameter
+  # @param dir_name [String] Temp dir name
+  # @return [nil]
+  def self.check_temp_dir(dir_name)
+    if File.exist? dir_name
+      puts "Directory #{dir_name} exist?: true"
+    else
+      Dir.mkdir dir_name
+      puts "Directory #{dir_name} created"
+    end
+  end
 end

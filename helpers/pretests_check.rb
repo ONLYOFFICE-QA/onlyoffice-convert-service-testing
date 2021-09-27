@@ -4,10 +4,12 @@ require 'net/http'
 # class with methods for check working system before run tests
 class PretestsCheck
   def self.pretests_check
+    FileHelper.check_temp_dir('files_tmp')
     documentserver_check = documentserver_available?
     nginx_check = nginx_available?
     s3_check = s3_available?
     palladium_token = palladium_token?
+
     unless s3_check && documentserver_check && nginx_check && palladium_token
       puts "Documentserver check: #{documentserver_check}"
       puts "Nginx check: #{nginx_check}"
