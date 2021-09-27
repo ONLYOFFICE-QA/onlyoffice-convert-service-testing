@@ -20,7 +20,10 @@ class FileHelper
     file_new_name
   end
 
+  # The method checks the existence of the directory,
+  # and if it does not exist, creates a new one using the name as a parameter
   # @param dir_name [String] Temp dir name
+  # @return [nil]
   def self.check_temp_dir(dir_name)
     if File.exist? dir_name
       puts "Directory #{dir_name} exist?: true"
