@@ -11,10 +11,10 @@ class PretestsCheck
     palladium_token = palladium_token?
 
     unless s3_check && documentserver_check && nginx_check && palladium_token
-      colorize_log "Documentserver check: #{documentserver_check}"
-      colorize_log "Nginx check: #{nginx_check}"
-      colorize_log "S3 check: #{s3_check}"
-      colorize_log "Palladium token: #{palladium_token}"
+      colorize_log("Documentserver check: #{documentserver_check}")
+      colorize_log("Nginx check: #{nginx_check}")
+      colorize_log("S3 check: #{s3_check}")
+      colorize_log("Palladium token: #{palladium_token}")
       raise 'Pre-test checks is failed!'
     end
     FileHelper.clear_dir('files_tmp')
@@ -70,12 +70,10 @@ class PretestsCheck
 
   def self.colorize_log(entry)
     case entry
-    when /true/
-      OnlyofficeLoggerHelper.green_log entry
-    when /false/
-      OnlyofficeLoggerHelper.red_log entry
+    when /true$/
+      OnlyofficeLoggerHelper.green_log(entry)
     else
-      OnlyofficeLoggerHelper.log entry
+      OnlyofficeLoggerHelper.red_log(entry)
     end
   end
 end
