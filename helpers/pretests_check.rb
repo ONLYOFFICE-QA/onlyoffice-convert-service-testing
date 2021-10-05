@@ -11,22 +11,10 @@ class PretestsCheck
     palladium_token = palladium_token?
 
     unless s3_check && documentserver_check && nginx_check && palladium_token
-      if documentserver_check
-        OnlyofficeLoggerHelper.green_log "Documentserver check: #{documentserver_check}"
-      else OnlyofficeLoggerHelper.red_log "Documentserver check: #{documentserver_check}"
-      end
-      if nginx_check
-        OnlyofficeLoggerHelper.green_log "Nginx check: #{nginx_check}"
-      else OnlyofficeLoggerHelper.red_log "Nginx check: #{nginx_check}"
-      end
-      if s3_check
-        OnlyofficeLoggerHelper.green_log "S3 check: #{s3_check}"
-      else OnlyofficeLoggerHelper.red_log "S3 check: #{s3_check}"
-      end
-      if palladium_token
-        OnlyofficeLoggerHelper.green_log "Palladium token: #{palladium_token}"
-      else OnlyofficeLoggerHelper.red_log "Palladium token: #{palladium_token}"
-      end
+      colorize_log "Documentserver check: #{documentserver_check}"
+      colorize_log "Nginx check: #{nginx_check}"
+      colorize_log "S3 check: #{s3_check}"
+      colorize_log "Palladium token: #{palladium_token}"
       raise 'Pre-test checks is failed!'
     end
     FileHelper.clear_dir('files_tmp')
@@ -78,5 +66,15 @@ class PretestsCheck
   rescue Errno::ENOENT => e
     OnlyofficeLoggerHelper.log(e.to_s)
     false
+  end
+
+  def self.colorize_log(entry)
+    if /true/.match? entry
+      OnlyofficeLoggerHelper.green_log entry
+    elsif /false/.match? entry
+      OnlyofficeLoggerHelper.red_log entry
+    else
+      OnlyofficeLoggerHelper.log entry
+    end
   end
 end
