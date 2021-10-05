@@ -69,9 +69,10 @@ class PretestsCheck
   end
 
   def self.colorize_log(entry)
-    if /true/.match? entry
+    case entry
+    when /true/
       OnlyofficeLoggerHelper.green_log entry
-    elsif /false/.match? entry
+    when /false/
       OnlyofficeLoggerHelper.red_log entry
     else
       OnlyofficeLoggerHelper.log entry
