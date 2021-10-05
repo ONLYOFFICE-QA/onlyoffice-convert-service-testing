@@ -26,10 +26,10 @@ class FileHelper
   # @return [nil]
   def self.check_temp_dir(dir_name)
     if File.exist? dir_name
-      OnlyofficeLoggerHelper.green_log "Directory #{dir_name} exist?: true"
+      OnlyofficeLoggerHelper.log "Directory #{dir_name} exist?: true"
     else
       Dir.mkdir dir_name
-      OnlyofficeLoggerHelper.green_log "Directory #{dir_name} created"
+      OnlyofficeLoggerHelper.log "Directory #{dir_name} created"
     end
   end
 end
