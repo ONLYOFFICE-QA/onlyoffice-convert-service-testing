@@ -1,7 +1,7 @@
 version: '3'
 services:
   documentserver:
-    image: onlyoffice/4testing-documentserver-ie:latest
+    image: "onlyoffice/4testing-documentserver-ee:${DOCSERVER_VERSION}"
     ports:
     - "80:80"
     environment:
