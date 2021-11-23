@@ -22,8 +22,6 @@ services:
       - nginx
     environment:
       - DOCUMENTSERVER=http://documentserver
-    command: >
-      bash -c "ruby helpers/wait_for_documentserver_start.rb
-      && rspec ${SPEC_TYPE}"
+    command: ["./entrypoint.sh"]
     volumes:
       - ./files_tmp/:/convert_service_testing/files_tmp/
