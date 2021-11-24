@@ -1,7 +1,7 @@
 version: '3'
 services:
   documentserver:
-    image: onlyoffice/4testing-documentserver-ie:latest
+    image: "onlyoffice/4testing-documentserver-ee:${DOCSERVER_VERSION}"
     ports:
     - "80:80"
     environment:
@@ -22,6 +22,7 @@ services:
       - nginx
     environment:
       - DOCUMENTSERVER=http://documentserver
-    command: ["ruby", "./helpers/wait_for_documentserver_start.rb"]
+      - CURRENT_SPEC="${CURRENT_SPEC}"
+    command: ["./entrypoint.sh"]
     volumes:
       - ./files_tmp/:/convert_service_testing/files_tmp/

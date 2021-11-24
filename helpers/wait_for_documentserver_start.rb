@@ -8,5 +8,3 @@ waiting_time.times do |i|
 end
 
 puts 'Waiting is end. Run tests'
-
-exec('rspec')
