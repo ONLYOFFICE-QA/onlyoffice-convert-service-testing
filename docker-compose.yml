@@ -22,7 +22,7 @@ services:
       - nginx
     environment:
       - DOCUMENTSERVER=http://documentserver
-      - CURRENT_SPEC="${CURRENT_SPEC}"
+      - CURRENT_SPEC=${CURRENT_SPEC}
     command: ["./entrypoint.sh"]
     volumes:
       - ./files_tmp/:/convert_service_testing/files_tmp/
