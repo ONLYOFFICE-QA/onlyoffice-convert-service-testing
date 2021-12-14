@@ -23,6 +23,10 @@ GEM
     diff-lcs (1.4.4)
     jmespath (1.4.0)
     jwt (2.3.0)
+    mini_portile2 (2.6.1)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
+      racc (~> 1.4)
     onlyoffice_bugzilla_helper (0.6.1)
     onlyoffice_documentserver_conversion_helper (0.3.0)
       jwt (~> 2)
@@ -36,11 +40,16 @@ GEM
     onlyoffice_testrail_wrapper (0.3.0)
       onlyoffice_bugzilla_helper (~> 0.1)
       onlyoffice_logger_helper (~> 1)
+    ooxml_parser (0.20.0)
+      nokogiri (~> 1)
+      ruby-filemagic (~> 0)
+      rubyzip (~> 2)
     palladium (1.1.0)
     parallel (1.21.0)
     parser (3.0.3.2)
       ast (~> 2.4.1)
     public_suffix (4.0.6)
+    racc (1.6.0)
     rainbow (3.0.0)
     regexp_parser (2.2.0)
     rexml (3.2.5)
@@ -74,6 +83,7 @@ GEM
       rubocop-ast (>= 0.4.0)
     rubocop-rspec (2.6.0)
       rubocop (~> 1.19)
+    ruby-filemagic (0.7.2)
     ruby-progressbar (1.11.0)
     rubyzip (2.3.2)
     unicode-display_width (2.1.0)
@@ -87,6 +97,7 @@ DEPENDENCIES
   onlyoffice_logger_helper
   onlyoffice_s3_wrapper
   onlyoffice_testrail_wrapper
+  ooxml_parser
   palladium
   rspec
   rspec_passed_time_formatter

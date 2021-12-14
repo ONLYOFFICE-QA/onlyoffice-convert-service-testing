@@ -12,3 +12,4 @@ gem 'rspec_passed_time_formatter'
 gem 'rubocop'
 gem 'rubocop-performance', require: false
 gem 'rubocop-rspec', require: false
+gem 'ooxml_parser'
