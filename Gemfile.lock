@@ -24,7 +24,7 @@ GEM
     jmespath (1.4.0)
     jwt (2.3.0)
     onlyoffice_bugzilla_helper (0.6.1)
-    onlyoffice_documentserver_conversion_helper (0.2.0)
+    onlyoffice_documentserver_conversion_helper (0.3.0)
       jwt (~> 2)
     onlyoffice_file_helper (0.5.0)
       onlyoffice_logger_helper (~> 1)
@@ -95,4 +95,4 @@ DEPENDENCIES
   rubocop-rspec
 
 BUNDLED WITH
-   2.2.21
+   2.2.33
