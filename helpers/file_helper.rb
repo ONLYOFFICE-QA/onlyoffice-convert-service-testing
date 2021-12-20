@@ -39,7 +39,7 @@ class FileHelper
   # Download temp file and return it location
   # @param file_url [String] url
   # @return [String] path to file
-  def self.tmp_to_download(url)
+  def self.download_file(url)
     data = URI.parse(url).open.read
     file = Tempfile.new('convert-service-file')
     file.write(data.force_encoding('UTF-8'))
