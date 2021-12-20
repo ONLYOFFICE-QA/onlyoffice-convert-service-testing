@@ -54,6 +54,9 @@ RSpec/DescribeClass:
     - 'spec/functional/documents/docx_to_rtf_funcrional_spec.rb'
     - 'spec/functional/documents/odt_to_docx_functional_spec.rb'
     - 'spec/functional/documents/rtf_to_docx_functional_spec.rb'
+    - 'spec/functional/spreadsheets/xls_to_xlsx_functional_spec.rb'
+    - 'spec/functional/spreadsheets/xlsx_to_ods_functional_spec.rb'
+    - 'spec/functional/spreadsheets/ods_to_xlsx_functional_spec.rb'
 
 # Offense count: 14
 # Configuration parameters: CountAsOne.
@@ -78,6 +81,9 @@ RSpec/InstanceVariable:
     - 'spec/functional/documents/docx_to_rtf_funcrional_spec.rb'
     - 'spec/functional/documents/odt_to_docx_functional_spec.rb'
     - 'spec/functional/documents/rtf_to_docx_functional_spec.rb'
+    - 'spec/functional/spreadsheets/xls_to_xlsx_functional_spec.rb'
+    - 'spec/functional/spreadsheets/xlsx_to_ods_functional_spec.rb'
+    - 'spec/functional/spreadsheets/ods_to_xlsx_functional_spec.rb'
 
 # Offense count: 14
 RSpec/MultipleExpectations:
