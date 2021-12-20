@@ -23,5 +23,6 @@ describe 'Convert doc to docx by convert service' do
   end
   after do |example|
     FileHelper.clear_dir('files_rmp')
+    palladium.add_result_and_log(example)
   end
 end
