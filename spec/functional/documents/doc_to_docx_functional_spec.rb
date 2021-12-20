@@ -16,7 +16,7 @@ describe 'Convert doc to docx by convert service' do
       @metadata = converter.perform_convert(url: file_uri(file_path), outputtype: 'docx')
       expect(@metadata[:url]).not_to be_nil
       expect(@metadata[:url]).not_to be_empty
-      @metadata[:file_path] = FileHelper.download(@metadata[:url], file_path, 'docx')
+      @metadata[:file_path] = FileHelper.download(@metadata[:url])
       expect(File).to exist(@metadata[:file_path])
       expect(OoxmlParser::Parser.parse(@metadata[:file_path])).to be_with_data
     end
