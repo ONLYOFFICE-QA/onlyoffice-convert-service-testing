@@ -15,6 +15,8 @@ RUN echo $DOCUMENTSERVER_JWT > ~/.documentserver/documentserver_jwt
 RUN mkdir ~/.palladium
 RUN echo $PALLADIUM_TOKEN > ~/.palladium/token
 
+RUN apt-get update && apt-get -y -q install libmagic-dev
+
 RUN mkdir /convert_service_testing
 WORKDIR /convert_service_testing
 ADD . /convert_service_testing
