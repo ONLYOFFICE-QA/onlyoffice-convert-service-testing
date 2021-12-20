@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require 'open-uri'
+require 'tempfile'
+
 # class with methods for working with files
 class FileHelper
   # delete all files and folders from dir
@@ -31,5 +34,16 @@ class FileHelper
       Dir.mkdir dir_name
       OnlyofficeLoggerHelper.log "Directory #{dir_name} created"
     end
+  end
+
+  # Download temp file and return it location
+  # @param file_url [String] url
+  # @return [String] path to file
+  def self.download_file(url)
+    data = URI.parse(url).open.read
+    file = Tempfile.new('convert-service-file')
+    file.write(data.force_encoding('UTF-8'))
+    file.close
+    file.path
   end
 end
