@@ -57,6 +57,9 @@ RSpec/DescribeClass:
     - 'spec/functional/spreadsheets/xls_to_xlsx_functional_spec.rb'
     - 'spec/functional/spreadsheets/xlsx_to_ods_functional_spec.rb'
     - 'spec/functional/spreadsheets/ods_to_xlsx_functional_spec.rb'
+    - 'spec/functional/presentations/pptx_to_odp_functional_spec.rb'
+    - 'spec/functional/presentations/ppt_to_pptx_functional_spec.rb'
+    - 'spec/functional/presentations/odp_to_pptx_functional_spec.rb'
 
 # Offense count: 14
 # Configuration parameters: CountAsOne.
@@ -84,6 +87,9 @@ RSpec/InstanceVariable:
     - 'spec/functional/spreadsheets/xls_to_xlsx_functional_spec.rb'
     - 'spec/functional/spreadsheets/xlsx_to_ods_functional_spec.rb'
     - 'spec/functional/spreadsheets/ods_to_xlsx_functional_spec.rb'
+    - 'spec/functional/presentations/pptx_to_odp_functional_spec.rb'
+    - 'spec/functional/presentations/ppt_to_pptx_functional_spec.rb'
+    - 'spec/functional/presentations/odp_to_pptx_functional_spec.rb'
 
 # Offense count: 14
 RSpec/MultipleExpectations:
