@@ -35,7 +35,7 @@ class FileHelper
       OnlyofficeLoggerHelper.log "Directory #{dir_name} created"
     end
   end
-  
+
   # Download temp file and return it location
   # @param file_url [String] url
   # @return [String] path to file
