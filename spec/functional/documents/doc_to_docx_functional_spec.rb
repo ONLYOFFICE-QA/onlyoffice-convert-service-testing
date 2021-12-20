@@ -10,7 +10,7 @@ describe 'Convert doc to docx by convert service' do
     @metadata = nil
   end
 
-  (files - result_sets.map { |result_sets| "doc/#{result_sets}" }).each do |file_path|
+  (files - result_sets.map { |result_set| "doc/#{result_set}" }).each do |file_path|
     it File.basename(file_path) do
       s3.download_file_by_name(file_path, './files_tmp')
       @metadata = converter.perform_convert(url: file_uri(file_path), outputtype: 'docx')
