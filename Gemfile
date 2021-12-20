@@ -6,10 +6,10 @@ gem 'onlyoffice_documentserver_conversion_helper'
 gem 'onlyoffice_logger_helper'
 gem 'onlyoffice_s3_wrapper'
 gem 'onlyoffice_testrail_wrapper'
+gem 'ooxml_parser'
 gem 'palladium'
 gem 'rspec'
 gem 'rspec_passed_time_formatter'
 gem 'rubocop'
 gem 'rubocop-performance', require: false
 gem 'rubocop-rspec', require: false
-gem 'ooxml_parser'
