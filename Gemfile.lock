@@ -40,7 +40,7 @@ GEM
     onlyoffice_testrail_wrapper (0.3.0)
       onlyoffice_bugzilla_helper (~> 0.1)
       onlyoffice_logger_helper (~> 1)
-    ooxml_parser (0.20.0)
+    ooxml_parser (0.21.0)
       nokogiri (~> 1)
       ruby-filemagic (~> 0)
       rubyzip (~> 2)
