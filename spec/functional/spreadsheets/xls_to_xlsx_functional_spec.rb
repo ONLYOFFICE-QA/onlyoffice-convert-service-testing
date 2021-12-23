@@ -4,7 +4,7 @@ require './spec/spec_helper'
 FileHelper.clear_dir 'files_tmp'
 palladium = PalladiumHelper.new DocumentServerHelper.get_version, 'Xls to Xlsx'
 result_sets = palladium.get_result_sets StaticData::POSITIVE_STATUSES
-files = s3.files_from_folder 'xls'
+files = s3.files_from_folder('xls')
 describe 'Convert xls to xlsx by convert service' do
   before do
     @metadata = nil

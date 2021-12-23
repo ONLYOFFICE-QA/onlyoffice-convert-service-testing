@@ -4,7 +4,7 @@ require 'spec_helper'
 FileHelper.clear_dir('files_tmp')
 palladium = PalladiumHelper.new(DocumentServerHelper.get_version, 'Convert EPUB')
 result_sets = palladium.get_result_sets(StaticData::POSITIVE_STATUSES)
-files = s3.files_from_folder 'epub'
+files = s3.files_from_folder('epub')
 describe 'Convert docx files by convert service' do
   before do
     @metadata = nil
