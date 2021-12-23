@@ -4,7 +4,7 @@ require './spec/spec_helper'
 FileHelper.clear_dir 'files_tmp'
 palladium = PalladiumHelper.new DocumentServerHelper.get_version, 'Doc to Docx'
 result_sets = palladium.get_result_sets StaticData::POSITIVE_STATUSES
-files = s3.get_files_by_prefix 'doc'
+files = s3.files_from_folder('doc')
 describe 'Convert doc to docx by convert service' do
   before do
     @metadata = nil

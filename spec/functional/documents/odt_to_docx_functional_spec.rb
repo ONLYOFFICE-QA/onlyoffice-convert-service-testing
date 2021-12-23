@@ -4,7 +4,7 @@ require './spec/spec_helper'
 FileHelper.clear_dir 'files_tmp'
 palladium = PalladiumHelper.new DocumentServerHelper.get_version, 'Odt to Docx'
 result_sets = palladium.get_result_sets StaticData::POSITIVE_STATUSES
-files = s3.get_files_by_prefix 'odt'
+files = s3.files_from_folder('odt')
 describe 'Convert odt to docx by convert service' do
   before do
     @metadata = nil
