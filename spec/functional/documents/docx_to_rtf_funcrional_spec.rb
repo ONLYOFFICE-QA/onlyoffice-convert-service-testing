@@ -12,6 +12,9 @@ describe 'Convert docx to rtf by convert service' do
 
   (files - result_sets.map { |result_set| "docx/#{result_set}" }).each do |file_path|
     it File.basename(file_path) do
+      if file_path == 'docx/Office Open XML Part 4 - Markup Language Reference.docx'
+        pending 'Need to increase the file size limit in document server'
+      end
       s3.download_file_by_name(file_path, './files_tmp')
       @metadata = converter.perform_convert(url: file_uri(file_path), outputtype: 'rtf')
       expect(@metadata[:url]).not_to be_nil
