@@ -3,12 +3,20 @@ on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.allow-failures }}
+    strategy:
+      matrix:
+        ruby: [ '2.6', '2.7', '3.0', '3.1' ]
+        allow-failures: [ false ]
+        include:
+          - ruby: head
+            allow-failures: true
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Ruby
+    - name: Set up Ruby ${{ matrix.ruby }}
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 3.1
+        ruby-version: ${{ matrix.ruby }}
     - name: Install dependencies
       run: |
         gem install bundler
