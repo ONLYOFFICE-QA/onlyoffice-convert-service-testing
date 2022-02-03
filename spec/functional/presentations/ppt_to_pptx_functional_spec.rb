@@ -18,7 +18,9 @@ describe 'Convert ppt to pptx by convert service' do
       expect(@metadata[:url]).not_to be_empty
       @metadata[:file_path] = FileHelper.download_file(@metadata[:url])
       expect(File).to exist(@metadata[:file_path])
-      expect(OoxmlParser::Parser.parse(@metadata[:file_path])).to be_with_data
+      unless StaticData::EMPTY_FILES.include?(File.basename(file))
+        expect(OoxmlParser::Parser.parse(@metadata[:file_path])).to be_with_data
+      end
     end
   end
   after do |example|
