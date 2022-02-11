@@ -3,11 +3,11 @@ services:
   documentserver:
     image: "onlyoffice/4testing-documentserver-ee:${DOCSERVER_VERSION}"
     ports:
-    - "80:80"
+      - "80:80"
     environment:
-    - JWT_ENABLED=true
-    - JWT_SECRET=secret
-    - JWT_HEADER=AuthorizationJwt
+      - JWT_ENABLED=true
+      - JWT_SECRET=secret
+      - JWT_HEADER=AuthorizationJwt
   nginx:
     image: nginx:latest
     ports:
