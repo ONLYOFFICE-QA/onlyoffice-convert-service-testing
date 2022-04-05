@@ -4,6 +4,19 @@ This project need to test onlyoffice documentserver via convert service
 
 ## Getting start
 
+For local startup in developer mode,
+recommended installing a local `bundle config` file.
+
+```bash
+bundle config set --local with development
+```
+
+Afterwards install the dependencies with the bundle.
+
+```bash
+bundle install
+```
+
 Add all keys to dockerfile
 
 * S3_KEY - is a s3 public key
@@ -16,9 +29,11 @@ on configuring the server document)
 Do not forget to change documentserver version from docker-compose file
 (default - **4testing-documentserver-ie:latest**)
 
-Run tests:
+Run tests (detached mode):
 
-`docker-compose up -d`
+```bash
+docker-compose up -d
+```
 
 ## How it work
 
