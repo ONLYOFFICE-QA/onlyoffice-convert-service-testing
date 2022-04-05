@@ -10,6 +10,9 @@ gem 'ooxml_parser'
 gem 'palladium'
 gem 'rspec'
 gem 'rspec_passed_time_formatter'
-gem 'rubocop'
-gem 'rubocop-performance', require: false
-gem 'rubocop-rspec', require: false
+
+group :development do
+  gem 'rubocop'
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rspec', require: false
+end
