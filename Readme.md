@@ -4,7 +4,8 @@ This project need to test onlyoffice documentserver via convert service
 
 ## Getting start
 
-For local startup in developer mode, recommended installing a local `bundle config` file.
+For local startup in developer mode,
+recommended installing a local `bundle config` file.
 
 ```bash
 bundle config set --local with development
