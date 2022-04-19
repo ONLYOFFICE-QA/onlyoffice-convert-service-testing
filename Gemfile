@@ -2,6 +2,7 @@
 
 source 'https://rubygems.org'
 gem 'addressable'
+gem 'json'
 gem 'onlyoffice_documentserver_conversion_helper'
 gem 'onlyoffice_logger_helper'
 gem 'onlyoffice_s3_wrapper', '>= 0.6.0'
