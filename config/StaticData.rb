@@ -22,7 +22,6 @@ class StaticData
   TMP_FOLDER = 'files_tmp'
 
   EXCEPTION_FILES = JSON.load_file("#{Dir.pwd}/config/exception_file.json")
-  EMPTY_FILES = ['empty(слайдов нет).ppt', 'empty.rtf', 'new.rtf', 'empty(пустой слайд).ppt'].freeze
 
   def self.nginx_url
     ENV['NGINX'] || 'http://nginx'
