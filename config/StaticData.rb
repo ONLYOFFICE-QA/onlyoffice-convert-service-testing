@@ -6,7 +6,7 @@ class StaticData
   PROJECT_NAME = 'Convert Service Testing'
   POSITIVE_STATUSES = %w[passed passed_2 pending].freeze
   PALLADIUM_SERVER = 'palladium.teamlab.info'
-  JWT_ENABLE = ENV['USE_JWT'] != 'no'
+  JWT_ENABLE = ENV.fetch('USE_JWT', 'no') != 'no'
   MIN_DOCX_IMAGE_SIZE = 5327
   MIN_PPTX_IMAGE_SIZE = 1085
   MIN_XLSX_IMAGE_SIZE = 5384
@@ -24,24 +24,22 @@ class StaticData
   EXCEPTION_FILES = JSON.load_file("#{Dir.pwd}/config/exception_file.json")
 
   def self.nginx_url
-    ENV['NGINX'] || 'http://nginx'
+    ENV.fetch('NGINX', 'http://nginx')
   end
 
   def self.documentserver_url
-    ENV['DOCUMENTSERVER'] || 'http://documentserver'
+    ENV.fetch('DOCUMENTSERVER', 'http://documentserver')
   end
 
   def self.get_jwt_key
-    File.read("#{ENV['HOME']}/.documentserver/documentserver_jwt")
+    File.read("#{Dir.home}/.documentserver/documentserver_jwt")
   end
 
   def self.jwt_data_exist?
-    File.exist?("#{ENV['HOME']}/.documentserver/documentserver_jwt")
+    File.exist?("#{Dir.home}/.documentserver/documentserver_jwt")
   end
 
   def self.get_palladium_token
-    return ENV['PALLADIUM_TOKEN'] if ENV['PALLADIUM_TOKEN']
-
-    File.read("#{ENV['HOME']}/.palladium/token")
+    ENV.fetch('PALLADIUM_TOKEN', File.read("#{Dir.home}/.palladium/token"))
   end
 end
