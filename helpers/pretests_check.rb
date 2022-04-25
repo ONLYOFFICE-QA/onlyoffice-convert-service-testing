@@ -60,7 +60,7 @@ class PretestsCheck
   end
 
   def self.palladium_token?
-    return true unless File.read("#{Dir.home}/.palladium/token").strip.empty?
+    return true unless File.read("#{ENV['HOME']}/.palladium/token").strip.empty?
 
     false
   rescue Errno::ENOENT => e
