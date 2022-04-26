@@ -13,7 +13,6 @@ describe 'Convert docx files by convert service' do
   (files - result_sets.map { |result_set| "docx/#{result_set}" }).each do |file_path|
     it File.basename(file_path) do
       pending 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=38299' if file_path == 'docx/ген_после_конвертирования_из_док.docx'
-      pending 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=45862' if file_path == 'docx/ПАКД.docx'
       if file_path == 'docx/Office Open XML Part 4 - Markup Language Reference.docx'
         pending 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=32793'
       end
