@@ -1,8 +1,25 @@
 # frozen_string_literal: true
 
 require 'net/http'
+require 'uri'
+require 'json'
+require 'nokogiri'
+
 # class with methods for check working system before run tests
 class PretestsCheck
+  # Sends a deliberately invalid request, checking the error code
+  # @return [TrueClass, FalseClass] true if valid error == -8 (invalid token)
+  def self.jwt_enable?
+    url = URI("#{StaticData.documentserver_url}/ConvertService.ashx")
+    http = Net::HTTP.new(url.host, url.port)
+    request = Net::HTTP::Post.new(url)
+    request['Content-Type'] = 'application/json'
+    request.body = JSON.dump({})
+    response = http.request(request)
+    xml = Nokogiri.XML(response.body)
+    StaticData::INVALID_TOKEN_ERROR === xml.xpath('//Error').text
+  end
+
   def self.pretests_check
     FileHelper.check_temp_dir('files_tmp')
     documentserver_check = documentserver_available?

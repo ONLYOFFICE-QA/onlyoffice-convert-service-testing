@@ -6,7 +6,7 @@ class StaticData
   PROJECT_NAME = 'Convert Service Testing'
   POSITIVE_STATUSES = %w[passed passed_2 pending].freeze
   PALLADIUM_SERVER = 'palladium.teamlab.info'
-  JWT_ENABLE = ENV['USE_JWT'] != 'no'
+
   MIN_DOCX_IMAGE_SIZE = 5327
   MIN_PPTX_IMAGE_SIZE = 1085
   MIN_XLSX_IMAGE_SIZE = 5384
@@ -22,6 +22,16 @@ class StaticData
   TMP_FOLDER = 'files_tmp'
 
   EXCEPTION_FILES = JSON.load_file("#{Dir.pwd}/config/exception_file.json")
+
+  INVALID_TOKEN_ERROR = '-8'
+
+  def self.documentserver_jwt_exist?
+    ENV.include?('DOCUMENTSERVER_JWT')
+  end
+
+  def self.documentserver_jwt_empty?
+    ENV.fetch('DOCUMENTSERVER_JWT', '') != ''
+  end
 
   def self.nginx_url
     ENV['NGINX'] || 'http://nginx'

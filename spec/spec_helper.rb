@@ -16,7 +16,7 @@ require_relative '../helpers/pretests_check'
 
 # ENV['DOCUMENTSERVER'] = ''
 # ENV['NGINX'] = ''
-# ENV['USE_JWT'] = 'no'
+# ENV['DOCUMENTSERVER_JWT'] = ''
 
 PretestsCheck.pretests_check
 
@@ -26,11 +26,18 @@ end
 
 RSpec.configure do |config|
   def converter
-    @converter ||= if !StaticData::JWT_ENABLE
+    @converter ||= if PretestsCheck.jwt_enable?
+                     if StaticData.documentserver_jwt_exist? && StaticData.documentserver_jwt_empty?
+                       OnlyofficeDocumentserverConversionHelper::ConvertFileData.new(StaticData.documentserver_url,
+                                                                                     jwt_key: ENV.fetch('DOCUMENTSERVER_JWT'))
+                     elsif StaticData.jwt_data_exist?
+                       OnlyofficeDocumentserverConversionHelper::ConvertFileData.new(StaticData.documentserver_url,
+                                                                                     jwt_key: StaticData.get_jwt_key.strip)
+                     else
+                       raise 'JWT key is not defined'
+                     end
+                   else
                      OnlyofficeDocumentserverConversionHelper::ConvertFileData.new(StaticData.documentserver_url)
-                   elsif StaticData.jwt_data_exist?
-                     OnlyofficeDocumentserverConversionHelper::ConvertFileData.new(StaticData.documentserver_url,
-                                                                                   jwt_key: StaticData.get_jwt_key.strip)
                    end
   end
 
