@@ -28,13 +28,11 @@ RSpec.configure do |config|
   def converter
     return @converter if @converter
 
-    return @converter = OnlyofficeDocumentserverConversionHelper::ConvertFileData.new(StaticData.documentserver_url) unless PretestsCheck.jwt_enable?
+    return @converter = DocumentServerHelper.no_jwt_converter unless PretestsCheck.jwt_enable?
 
-    return @converter = OnlyofficeDocumentserverConversionHelper::ConvertFileData.new(StaticData.documentserver_url,
-                                                                               jwt_key: ENV.fetch('DOCUMENTSERVER_JWT')) if StaticData.jwt_key_in_env?
+    return @converter = DocumentServerHelper.jwt_from_env_converter if StaticData.jwt_key_in_env?
 
-    return @converter = OnlyofficeDocumentserverConversionHelper::ConvertFileData.new(StaticData.documentserver_url,
-                                                                                      jwt_key: StaticData.get_jwt_key.strip) if StaticData.jwt_key_in_config_file?
+    return @converter = DocumentServerHelper.jwt_from_file_converter if StaticData.jwt_key_in_config_file?
   end
 
   config.expect_with :rspec do |expectations|

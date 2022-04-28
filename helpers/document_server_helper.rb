@@ -10,4 +10,21 @@ class DocumentServerHelper
     trimmed_lines = starting_lines[0..300]
     trimmed_lines[/(\w+.)?\w+.\w+\s\(build:.*\)/]
   end
+
+  # @return [OnlyofficeDocumentserverConversionHelper::ConvertFileData]
+  def self.no_jwt_converter
+    OnlyofficeDocumentserverConversionHelper::ConvertFileData.new(StaticData.documentserver_url)
+  end
+
+  # @return [OnlyofficeDocumentserverConversionHelper::ConvertFileData]
+  def self.jwt_from_env_converter
+    OnlyofficeDocumentserverConversionHelper::ConvertFileData.new(StaticData.documentserver_url,
+                                                                  jwt_key: ENV.fetch('DOCUMENTSERVER_JWT'))
+  end
+
+  # @return [OnlyofficeDocumentserverConversionHelper::ConvertFileData]
+  def self.jwt_from_file_converter
+    OnlyofficeDocumentserverConversionHelper::ConvertFileData.new(StaticData.documentserver_url,
+                                                                  jwt_key: StaticData.get_jwt_key.strip)
+  end
 end
