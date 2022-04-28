@@ -7,5 +7,5 @@ if [[ -z $CURRENT_SPEC ]]; then
         rspec
     else
         echo 'Run the spec file ' $CURRENT_SPEC
-        rspec spec/convertion_by_format/$CURRENT_SPEC
+        rspec spec/conversion_by_format/$CURRENT_SPEC
 fi
