@@ -26,7 +26,7 @@ class StaticData
   INVALID_TOKEN_ERROR = '-8'
 
   def self.documentserver_jwt_exist?
-    ENV.include?('DOCUMENTSERVER_JWT')
+    ENV.key?('DOCUMENTSERVER_JWT')
   end
 
   def self.documentserver_jwt_empty?
