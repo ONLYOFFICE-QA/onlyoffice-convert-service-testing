@@ -25,12 +25,16 @@ class StaticData
 
   INVALID_TOKEN_ERROR = '-8'
 
-  def self.documentserver_jwt_exist?
-    ENV.key?('DOCUMENTSERVER_JWT')
+  def self.jwt_key_in_env?
+    ENV.key?('DOCUMENTSERVER_JWT') && ENV.fetch('DOCUMENTSERVER_JWT', '') != ''
   end
 
-  def self.documentserver_jwt_empty?
-    ENV.fetch('DOCUMENTSERVER_JWT', '') != ''
+  def self.jwt_key_in_config_file?
+    File.exist?("#{ENV['HOME']}/.documentserver/documentserver_jwt")
+  end
+
+  def self.get_jwt_key
+    File.read("#{ENV['HOME']}/.documentserver/documentserver_jwt")
   end
 
   def self.nginx_url
@@ -39,14 +43,6 @@ class StaticData
 
   def self.documentserver_url
     ENV['DOCUMENTSERVER'] || 'http://documentserver'
-  end
-
-  def self.get_jwt_key
-    File.read("#{ENV['HOME']}/.documentserver/documentserver_jwt")
-  end
-
-  def self.jwt_data_exist?
-    File.exist?("#{ENV['HOME']}/.documentserver/documentserver_jwt")
   end
 
   def self.get_palladium_token
