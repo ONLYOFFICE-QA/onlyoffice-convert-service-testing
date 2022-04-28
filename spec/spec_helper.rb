@@ -16,7 +16,7 @@ require_relative '../helpers/pretests_check'
 
 # ENV['DOCUMENTSERVER'] = ''
 # ENV['NGINX'] = ''
-# ENV['USE_JWT'] = 'no'
+# ENV['DOCUMENTSERVER_JWT'] = ''
 
 PretestsCheck.pretests_check
 
@@ -26,12 +26,13 @@ end
 
 RSpec.configure do |config|
   def converter
-    @converter ||= if !StaticData::JWT_ENABLE
-                     OnlyofficeDocumentserverConversionHelper::ConvertFileData.new(StaticData.documentserver_url)
-                   elsif StaticData.jwt_data_exist?
-                     OnlyofficeDocumentserverConversionHelper::ConvertFileData.new(StaticData.documentserver_url,
-                                                                                   jwt_key: StaticData.get_jwt_key.strip)
-                   end
+    return @converter if @converter
+
+    return @converter = DocumentServerHelper.no_jwt_converter unless PretestsCheck.jwt_enable?
+
+    return @converter = DocumentServerHelper.jwt_from_env_converter if StaticData.jwt_key_in_env?
+
+    return @converter = DocumentServerHelper.jwt_from_file_converter if StaticData.jwt_key_in_config_file?
   end
 
   config.expect_with :rspec do |expectations|
