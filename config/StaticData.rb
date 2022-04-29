@@ -38,15 +38,15 @@ class StaticData
   end
 
   def self.nginx_url
-    ENV['NGINX'] || 'http://nginx'
+    ENV.fetch('NGINX', 'http://nginx')
   end
 
   def self.documentserver_url
-    ENV['DOCUMENTSERVER'] || 'http://documentserver'
+    ENV.fetch('DOCUMENTSERVER', 'http://documentserver')
   end
 
   def self.get_palladium_token
-    return ENV['PALLADIUM_TOKEN'] if ENV['PALLADIUM_TOKEN']
+    return ENV.fetch('PALLADIUM_TOKEN') if ENV.key?('PALLADIUM_TOKEN')
 
     File.read("#{Dir.home}/.palladium/token")
   end
