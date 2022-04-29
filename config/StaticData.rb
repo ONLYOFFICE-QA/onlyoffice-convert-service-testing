@@ -30,11 +30,11 @@ class StaticData
   end
 
   def self.jwt_key_in_config_file?
-    File.exist?("#{ENV['HOME']}/.documentserver/documentserver_jwt")
+    File.exist?("#{Dir.home}/.documentserver/documentserver_jwt")
   end
 
   def self.get_jwt_key
-    File.read("#{ENV['HOME']}/.documentserver/documentserver_jwt")
+    File.read("#{Dir.home}/.documentserver/documentserver_jwt")
   end
 
   def self.nginx_url
@@ -48,6 +48,6 @@ class StaticData
   def self.get_palladium_token
     return ENV['PALLADIUM_TOKEN'] if ENV['PALLADIUM_TOKEN']
 
-    File.read("#{ENV['HOME']}/.palladium/token")
+    File.read("#{Dir.home}/.palladium/token")
   end
 end
