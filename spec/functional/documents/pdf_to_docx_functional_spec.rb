@@ -18,6 +18,9 @@ describe 'Convert pdf to docx by convert service' do
       expect(@metadata[:url]).not_to be_empty
       @metadata[:file_path] = FileHelper.download_file(@metadata[:url])
       expect(File).to exist(@metadata[:file_path])
+      if StaticData::EXCEPTION_FILES['large_files_after_conversion_pdf_docx'].include?(File.basename(file_path))
+        skip('https://bugzilla.onlyoffice.com/show_bug.cgi?id=57168')
+      end
       expect(OoxmlParser::Parser.parse(@metadata[:file_path])).to be_with_data
     end
   end
