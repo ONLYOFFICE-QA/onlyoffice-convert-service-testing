@@ -12,6 +12,7 @@ describe 'Convert docx files by convert service' do
 
   (files - result_sets.map { |result_set| "xlsb/#{result_set}" }).each do |file_path|
     it File.basename(file_path) do
+      pending 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=57360' if file_path == 'xlsb/Smaller50MB.xlsb'
       s3.download_file_by_name(file_path, './files_tmp')
       @metadata = converter.perform_convert(url: file_uri(file_path), outputtype: 'png')
       expect(@metadata[:url]).not_to be_nil
