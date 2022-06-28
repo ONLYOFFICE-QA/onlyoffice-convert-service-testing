@@ -11,10 +11,10 @@ class PalladiumHelper
   end
 
   def get_result_set_link
-    "http://#{@palladium.host}/product/"\
-      "#{@palladium.product_id}/plan/"\
-      "#{@palladium.plan_id}/run/"\
-      "#{@palladium.run_id}/result_set/"\
+    "http://#{@palladium.host}/product/" \
+      "#{@palladium.product_id}/plan/" \
+      "#{@palladium.plan_id}/run/" \
+      "#{@palladium.run_id}/result_set/" \
       "#{@palladium.result_set_id}"
   end
 
