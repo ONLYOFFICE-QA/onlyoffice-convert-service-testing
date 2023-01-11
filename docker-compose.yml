@@ -1,4 +1,10 @@
-version: '3'
+version: '3.9'
+
+volumes:
+  common_volume:
+    name: ${VOLUME_ID}
+    external: false
+
 services:
   documentserver:
     image: "onlyoffice/4testing-documentserver-ee:${DOCSERVER_VERSION}"
@@ -9,11 +15,11 @@ services:
       - JWT_SECRET=secret
       - JWT_HEADER=AuthorizationJwt
   nginx:
-    image: nginx:latest
+    image: nginx
     ports:
       - "3000:80"
     volumes:
-      - ./files_tmp/:/usr/share/nginx/html/
+      - common_volume:/usr/share/nginx/html/:rw
   testing_project:
     build: ./
     tty: true
@@ -25,4 +31,4 @@ services:
       - CURRENT_SPEC=${CURRENT_SPEC}
     command: ["./entrypoint.sh"]
     volumes:
-      - ./files_tmp/:/convert_service_testing/files_tmp/
+      - common_volume:/convert_service_testing/files_tmp/:rw
