@@ -1,7 +1,7 @@
 version: '3.9'
 
 volumes:
-  common_volume:
+  documents_volume:
     name: ${VOLUME_ID}
     external: false
 
@@ -19,7 +19,7 @@ services:
     ports:
       - "3000:80"
     volumes:
-      - common_volume:/usr/share/nginx/html/:rw
+      - documents_volume:/usr/share/nginx/html/
   testing_project:
     build: ./
     tty: true
@@ -31,4 +31,4 @@ services:
       - CURRENT_SPEC=${CURRENT_SPEC}
     command: ["./entrypoint.sh"]
     volumes:
-      - common_volume:/convert_service_testing/files_tmp/:rw
+      - documents_volume:/convert_service_testing/files_tmp/
