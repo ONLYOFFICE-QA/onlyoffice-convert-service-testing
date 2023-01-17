@@ -2,7 +2,7 @@ version: '3'
 
 volumes:
   documents_volume:
-    name: ${VOLUME_ID}
+    name: ${VOLUME_NAME}
     external: false
 
 services:
