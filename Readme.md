@@ -26,16 +26,16 @@ This project need to test onlyoffice documentserver via [convert service](https:
 
       ```yml
         nginx:
-      ...
+        ...
           volumes:
       - ./files_tmp:/usr/share/nginx/html/
-      ...
+        ...
       ```
 
   4. Run auxiliary containers (wait ~120 sec)
 
       ```bash
-        docker-compose up -d documentserver &&
+        docker-compose up -d documentserver
         docker-compose up -d nginx
       ```
   
@@ -103,8 +103,10 @@ This project need to test onlyoffice documentserver via [convert service](https:
 
 * Error in response (-1, -2, -3,  -7)
 
-  At first, you need to open file in editors and save in like pdf, and after it
-  you need to create new bug to Konovalov Sergey. Example of bug report - 45253
+  At first, you need to open file in editors and save in like *pdf*, and after it
+  you need to create new bug to **Konovalov Sergey**.
+
+  Example of bug report - **45253** (private bug tracker)
 
 * Error in response -4
 
