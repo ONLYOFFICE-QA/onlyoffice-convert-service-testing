@@ -23,7 +23,7 @@ GEM
     diff-lcs (1.5.0)
     jmespath (1.6.2)
     json (2.6.3)
-    jwt (2.6.0)
+    jwt (2.7.0)
     mini_portile2 (2.8.1)
     nokogiri (1.14.0)
       mini_portile2 (~> 2.8.0)
