@@ -5,7 +5,7 @@ FileHelper.clear_dir 'files_tmp'
 palladium = PalladiumHelper.new DocumentServerHelper.get_version, 'Spreadsheets to All'
 result_sets = palladium.get_result_sets StaticData::POSITIVE_STATUSES
 files = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_files.json'))['spreadsheets']
-output_formats = %w[bmp	csv	gif	jpg	ods	ots	pdf	png	xlsm	xlsx	xltm	xltx]
+output_formats = %w[bmp csv gif jpg ods ots pdf png xlsm xlsx xltm xltx]
 
 describe 'Convert spreadsheets to all formats by convert service' do
   before do
