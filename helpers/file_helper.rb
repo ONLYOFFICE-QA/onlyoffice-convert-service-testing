@@ -2,6 +2,7 @@
 
 require 'open-uri'
 require 'tempfile'
+require 'net/http'
 
 # class with methods for working with files
 class FileHelper
@@ -36,14 +37,7 @@ class FileHelper
     end
   end
 
-  # Download temp file and return it location
-  # @param file_url [String] url
-  # @return [String] path to file
-  def self.download_file(url)
-    data = URI.parse(url).open.read
-    file = Tempfile.new('convert-service-file')
-    file.write(data.force_encoding('UTF-8'))
-    file.close
-    file.path
+  def self.download_file(url, file_path)
+    File.binwrite(file_path, Net::HTTP.get_response(URI(url)).body)
   end
 end
