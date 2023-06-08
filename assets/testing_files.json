@@ -1,0 +1,50 @@
+{
+  "documents": [
+    "docx/1110.docx",
+    "doc/_4__.doc",
+    "docxf/Отчет7.4.docxf",
+    "epub/1ogvaernaoriya.epub",
+    "fb2/Van_Kotlyarevskiy-Ene_Da.fb2",
+    "fodt/course.fodt",
+    "html/4-2.htm",
+    "html/10kposter.html",
+    "mht/CableModem.mht",
+    "odt/11.odt",
+    "pdf/1.pdf",
+    "rtf/1_2007.rtf",
+    "stw/template_open_office_1.0.stw",
+    "sxw/open_office_1_0.sxw",
+    "txt/3_WMAPI.txt",
+    "wps/document wps writer 02Test.wps",
+    "wpt/template_wps_writer 02Test.wpt",
+    "xps/0inDashArray.xps",
+    "xml/01-launchers.xml"
+  ],
+
+  "presentations": [
+    "dps/Office2010.dps",
+    "dpt/Testtesttest.dpt",
+    "fodp/Banki.fodp",
+    "odp/04_ODFWS2009_South_Africa.odp",
+    "pps/test.pps",
+    "ppsm/Москва.ppsm",
+    "ppsx/япония.ppsx",
+    "ppt/1.ppt",
+    "pptx/2.pptx",
+    "sxi/3_A-IMA.sxi"
+  ],
+
+  "spreadsheets": [
+    "csv/NSE_NIFTY.csv",
+    "et/Weekly Class Attendance Tracking1.et",
+    "ett/Realiz_05_10_2022_093106.ett",
+    "fods/DataPilotSampleLinked_GETPIVOTDATA.fods",
+    "ods/_Aux. Enferm A.ods", "ots/black_white.ots",
+    "sxc/5.sxc",
+    "xls/_.xls",
+    "xlsb/_2-1_1.xlsb",
+    "xlsx/__ (2).xlsx",
+    "xltx/Расписание смен1.xltx",
+    "xml/xml_spreadsheet_2003_6.xml"
+  ]
+}
