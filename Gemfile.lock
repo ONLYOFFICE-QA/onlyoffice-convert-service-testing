@@ -44,7 +44,7 @@ GEM
     ooxml_decrypt (1.0.0)
       nokogiri (~> 1.10)
       ruby-ole (~> 1.2)
-    ooxml_parser (0.36.1)
+    ooxml_parser (0.37.0)
       nokogiri (~> 1)
       ooxml_decrypt (~> 1)
       rubyzip (~> 2)
@@ -54,7 +54,7 @@ GEM
       ast (~> 2.4.1)
       racc
     public_suffix (5.0.1)
-    racc (1.7.0)
+    racc (1.7.1)
     rainbow (3.1.1)
     regexp_parser (2.8.0)
     rexml (3.2.5)
