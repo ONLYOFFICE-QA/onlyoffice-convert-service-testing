@@ -32,7 +32,7 @@ RSpec.configure do |config|
 
     return @converter = DocumentServerHelper.jwt_from_env_converter if StaticData.jwt_key_in_env?
 
-    return @converter = DocumentServerHelper.jwt_from_file_converter if StaticData.jwt_key_in_config_file?
+    @converter = DocumentServerHelper.jwt_from_file_converter if StaticData.jwt_key_in_config_file?
   end
 
   config.expect_with :rspec do |expectations|
