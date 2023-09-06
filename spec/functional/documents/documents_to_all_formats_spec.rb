@@ -5,7 +5,7 @@ FileHelper.clear_dir 'files_tmp'
 palladium = PalladiumHelper.new DocumentServerHelper.get_version, 'Documents to All'
 result_sets = palladium.get_result_sets StaticData::POSITIVE_STATUSES
 files = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_files.json'))['documents']
-output_formats = %w[bmp docm docx docxf dotm dotx epub fb2 gif html jpg odt ott pdf png rtf txt]
+output_formats = JSON.load_file(File.join(Dir.pwd, 'assets', 'output_formats.json'))
 
 describe 'Convert documents to all formats by convert service' do
   before do
@@ -13,9 +13,12 @@ describe 'Convert documents to all formats by convert service' do
   end
 
   files.each do |file_path|
-    output_formats.each do |format|
-      test_name = "#{File.extname(file_path).delete('.')} to #{format}"
-      next if result_sets.include?(test_name) || File.extname(file_path).delete('.') == format
+    input_format = File.extname(file_path).delete('.').to_s
+    formats = output_formats.key?(input_format) ? output_formats[input_format] : output_formats['documents']
+
+    formats.each do |format|
+      test_name = "#{input_format} to #{format}"
+      next if result_sets.include?(test_name) || input_format == format
 
       it test_name do
         s3.download_file_by_name(file_path, './files_tmp')

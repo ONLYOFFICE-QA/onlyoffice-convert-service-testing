@@ -19,7 +19,7 @@
     "txt"
   ],
 
-  "spreadsheets":[
+  "spreadsheet":[
     "bmp",
     "csv",
     "gif",
@@ -34,7 +34,7 @@
     "xltx"
   ],
 
-  "presentations": [
+  "presentation": [
     "bmp",
     "gif",
     "jpg",
