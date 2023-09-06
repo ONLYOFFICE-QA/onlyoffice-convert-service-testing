@@ -32,7 +32,9 @@ RSpec.configure do |config|
 
     return @converter = DocumentServerHelper.jwt_from_env_converter if StaticData.jwt_key_in_env?
 
-    @converter = DocumentServerHelper.jwt_from_file_converter if StaticData.jwt_key_in_config_file?
+    return @converter = DocumentServerHelper.jwt_from_file_converter if StaticData.jwt_key_in_config_file?
+
+    raise('Jwt is enabled, but the jwt key is not found on your computer. Please set the jwt key.')
   end
 
   config.expect_with :rspec do |expectations|
