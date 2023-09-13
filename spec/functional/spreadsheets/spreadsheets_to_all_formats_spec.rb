@@ -14,7 +14,7 @@ describe 'Convert spreadsheets to all formats by convert service' do
 
   files.each do |file_path|
     input_format = File.extname(file_path).delete('.').to_s
-    formats = output_formats.key?(input_format) ? output_formats[input_format] : output_formats['spreadsheet']
+    formats = output_formats.key?(input_format) ? output_formats[input_format] : output_formats['spreadsheets']
 
     formats.each do |format|
       test_name = "#{input_format} to #{format}"

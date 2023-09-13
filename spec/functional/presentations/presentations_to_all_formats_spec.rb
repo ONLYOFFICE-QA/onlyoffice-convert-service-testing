@@ -14,7 +14,7 @@ describe 'Convert presentations to all formats by convert service' do
 
   files.each do |file_path|
     input_format = File.extname(file_path).delete('.').to_s
-    formats = output_formats.key?(input_format) ? output_formats[input_format] : output_formats['presentation']
+    formats = output_formats.key?(input_format) ? output_formats[input_format] : output_formats['presentations']
 
     formats.each do |format|
       test_name = "#{input_format} to #{format}"
