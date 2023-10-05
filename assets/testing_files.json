@@ -63,5 +63,26 @@
     "xlsx/__ (2).xlsx",
     "xltx/Расписание смен1.xltx",
     "xml/xml_spreadsheet_2003_6.xml"
+  ],
+
+  "protected_documents": [
+    "docx/test[pass111].docx",
+    "odt/protected_document[pass123].odt",
+    "doc/Protected_Documents[pass123].doc",
+    "pdf/Перечень поездов[pass123].pdf",
+    "ott/protected_document[pass123].ott"
+  ],
+
+  "protected_presentations": [
+    "odp/Pass_impress_libre_[pass111].odp",
+    "ppt/Test[pass123456].ppt",
+    "pptx/Protected_Documents[pass123].pptx"
+  ],
+
+  "protected_spreadsheets": [
+    "xlsx/test[pass111].xlsx",
+    "ods/protected_document[pass123].ods",
+    "ots/protected_document[pass123].ots",
+    "xls/protected_document[pass123].xls"
   ]
 }
