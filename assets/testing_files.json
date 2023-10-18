@@ -91,7 +91,8 @@
     "odt/test_macros.odt",
     "ods/test_macros.ods",
     "odp/test_macros.odp",
-    "doc/test_macros.doc"
+    "doc/test_macros.doc",
+    "ppt/test_macros.ppt"
   ],
 
   "documents_to_ooxml": [
@@ -108,6 +109,7 @@
     "otp/Alizarin.otp",
     "pot/VP.pot",
     "ppt/1.ppt",
+    "pps/test.pps",
     "sxi/3_A-IMA.sxi",
     "et/Weekly Class Attendance Tracking1.et",
     "ett/Realiz_05_10_2022_093106.ett",
@@ -117,6 +119,38 @@
     "sxc/5.sxc",
     "xls/_.xls",
     "xlt/cwods.xlt",
-    "xltx/Расписание смен1.xltx"
-  ]
+    "xltx/Расписание смен1.xltx",
+    "xml/xml_spreadsheet_2003_6.xml"
+  ],
+
+    "documents_to_odf": [
+    "docx/1110.docx",
+    "dotx/01 Test (2010).dotx",
+    "dot/0 (1).dot",
+    "doc/_4__.doc",
+    "txt/3_WMAPI.txt",
+    "dps/Office2010.dps",
+    "dpt/Testtesttest.dpt",
+    "wps/document wps writer 02Test.wps",
+    "wpt/template_wps_writer 02Test.wpt",
+    "pot/VP.pot",
+    "potx/13lex_elsie.potx",
+    "pptm/RSA.pptm",
+    "ppsm/Москва.ppsm",
+    "ppsx/япония.ppsx",
+    "ppt/1.ppt",
+    "pps/test.pps",
+    "sxi/3_A-IMA.sxi",
+    "pptx/2.pptx",
+    "et/Weekly Class Attendance Tracking1.et",
+    "ett/Realiz_05_10_2022_093106.ett",
+    "sxc/5.sxc",
+    "xls/_.xls",
+    "xlsb/_2-1_1.xlsb",
+    "xlsm/_3_1.xlsm",
+    "xlt/cwods.xlt",
+    "xltx/Расписание смен1.xltx",
+    "xlsx/__ (2).xlsx",
+    "xml/xml_spreadsheet_2003_6.xml"
+    ]
 }

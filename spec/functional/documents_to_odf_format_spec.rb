@@ -3,32 +3,30 @@
 require './spec/spec_helper'
 require 'nokogiri'
 
-palladium = PalladiumHelper.new DocumentServerHelper.get_version, 'Documents With Macros to Ooxml'
+FileHelper.clear_dir 'files_tmp'
+palladium = PalladiumHelper.new DocumentServerHelper.get_version, 'Documents to odf'
 result_sets = palladium.get_result_sets StaticData::POSITIVE_STATUSES
-files = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_files.json'))['documents_with_macros']
-odf_formats = %w[odt odp ods]
+files = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_files.json'))['documents_to_odf']
+odf_formats = %w[odt ods odp]
 
-describe 'Convert documents with macros to ooxml format by convert service' do
+describe 'Convert documents to odf format by convert service' do
   before do
     @metadata = nil
-    @tmp_dir = FileHelper.create_tmp_dir
+    @tmp_dir = File.join(Dir.pwd, 'files_tmp', "tmp_#{Time.now.to_i}_#{rand(1000)}")
+    Dir.mkdir(@tmp_dir)
   end
 
   files.each do |s3_file_path|
-    input_format = File.extname(s3_file_path).delete('.').to_s
-
-    test_name = "#{input_format} with macros to ooxml"
+    test_name = "#{File.extname(s3_file_path).delete('.')} to odf"
     next if result_sets.include?(test_name)
 
     it test_name do
-      pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=61652') if odf_formats.include?(input_format)
-      pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=64779') if s3_file_path == 'ppt/test_macros.ppt'
       file_path = s3.download_file_by_name(s3_file_path, @tmp_dir)
-      @metadata = converter.perform_convert(url: file_uri(file_path), outputtype: 'ooxml')[:data]
+      @metadata = converter.perform_convert(url: file_uri(file_path), outputtype: 'odf')[:data]
       data = Nokogiri::XML(@metadata)
       expect(data.at('FileResult/FileUrl').text).not_to be_nil
       expect(data.at('FileResult/FileUrl').text).not_to be_empty
-      expect(data.at('FileResult/FileType').text).to end_with('m')
+      expect(odf_formats).to include(data.at('FileResult/FileType').text)
       result_path = File.join(@tmp_dir, "#{File.basename(s3_file_path)}.#{data.at('FileResult/FileType').text}")
       FileHelper.download_file(data.at('FileResult/FileUrl').text, result_path)
       expect(File).to exist(result_path)
