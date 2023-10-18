@@ -53,7 +53,7 @@ end
 # @return [String] URI address file in nginx
 # @note Changes the name of a temporary file
 def file_uri(file_path)
-  tmp_name = FileHelper.file_rename(File.basename(file_path))
-  link = "#{StaticData.nginx_url}/#{tmp_name}"
+  tmp_name = FileHelper.file_rename(file_path)
+  link = "#{StaticData.nginx_url}/#{File.basename(File.dirname(file_path))}/#{tmp_name}"
   Addressable::URI.parse(link).normalize.to_s
 end

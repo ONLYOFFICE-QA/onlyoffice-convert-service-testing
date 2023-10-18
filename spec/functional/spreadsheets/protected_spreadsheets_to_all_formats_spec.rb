@@ -10,10 +10,12 @@ output_formats = JSON.load_file(File.join(Dir.pwd, 'assets', 'output_formats.jso
 describe 'Convert protected spreadsheets to all formats by convert service' do
   before do
     @metadata = nil
+    @tmp_dir = File.join(Dir.pwd, 'files_tmp', "tmp_#{Time.now.to_i}_#{rand(1000)}")
+    Dir.mkdir(@tmp_dir)
   end
 
-  files.each do |file_path|
-    input_format = File.extname(file_path).delete('.').to_s
+  files.each do |s3_file_path|
+    input_format = File.extname(s3_file_path).delete('.').to_s
     formats = output_formats.key?(input_format) ? output_formats[input_format] : output_formats['spreadsheets']
 
     formats.each do |format|
@@ -21,9 +23,9 @@ describe 'Convert protected spreadsheets to all formats by convert service' do
       next if result_sets.include?(test_name) || input_format == format
 
       it test_name do
-        s3.download_file_by_name(file_path, './files_tmp')
-        result_path = "./files_tmp/#{File.basename(file_path)}.#{format}"
-        password = File.basename(file_path).match(/\[pass(\d+)\]/)[1]
+        file_path = s3.download_file_by_name(s3_file_path, @tmp_dir)
+        result_path = File.join(@tmp_dir, "#{File.basename(s3_file_path)}.#{format}")
+        password = File.basename(s3_file_path).match(/\[pass(\d+)\]/)[1]
         @metadata = converter.perform_convert(url: file_uri(file_path), outputtype: format, password: password)
         expect(@metadata[:url]).not_to be_nil
         expect(@metadata[:url]).not_to be_empty
@@ -34,7 +36,7 @@ describe 'Convert protected spreadsheets to all formats by convert service' do
   end
 
   after do |example|
-    FileHelper.clear_dir('files_tmp')
+    FileUtils.rm_rf(@tmp_dir, secure: true)
     palladium.add_result_and_log(example)
   end
 end
