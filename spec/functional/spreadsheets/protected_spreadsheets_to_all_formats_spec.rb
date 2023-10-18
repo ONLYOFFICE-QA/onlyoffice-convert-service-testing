@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require './spec/spec_helper'
-FileHelper.clear_dir 'files_tmp'
+
 palladium = PalladiumHelper.new DocumentServerHelper.get_version, 'Protected Spreadsheets to All'
 result_sets = palladium.get_result_sets StaticData::POSITIVE_STATUSES
 files = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_files.json'))['protected_spreadsheets']
@@ -10,8 +10,7 @@ output_formats = JSON.load_file(File.join(Dir.pwd, 'assets', 'output_formats.jso
 describe 'Convert protected spreadsheets to all formats by convert service' do
   before do
     @metadata = nil
-    @tmp_dir = File.join(Dir.pwd, 'files_tmp', "tmp_#{Time.now.to_i}_#{rand(1000)}")
-    Dir.mkdir(@tmp_dir)
+    @tmp_dir = FileHelper.create_tmp_dir
   end
 
   files.each do |s3_file_path|

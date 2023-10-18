@@ -22,9 +22,10 @@ class PretestsCheck
 
   def self.pretests_check
     FileHelper.check_temp_dir('files_tmp')
+    tmp_dir = FileHelper.create_tmp_dir
+    s3_check = s3_available?(tmp_dir)
     documentserver_check = documentserver_available?
-    nginx_check = nginx_available?
-    s3_check = s3_available?
+    nginx_check = nginx_available?(tmp_dir)
     palladium_token = palladium_token?
 
     unless s3_check && documentserver_check && nginx_check && palladium_token
@@ -34,7 +35,7 @@ class PretestsCheck
       colorize_log("Palladium token: #{palladium_token}")
       raise 'Pre-test checks is failed!'
     end
-    FileHelper.clear_dir('files_tmp')
+    FileUtils.rm_rf(tmp_dir, secure: true)
   end
 
   def self.documentserver_available?
@@ -45,19 +46,22 @@ class PretestsCheck
     status
   end
 
-  def self.nginx_available?
+  def self.nginx_available?(tmp_dir)
     random_file_name = "#{Time.now.nsec}.txt"
-    FileHelper.create_file("#{StaticData::TMP_FOLDER}/#{random_file_name}")
-    status = request_to("#{StaticData.nginx_url}/#{random_file_name}")
+    FileHelper.create_file(File.join(tmp_dir, random_file_name))
+    status = request_to("#{StaticData.nginx_url}/#{File.basename(tmp_dir)}/#{random_file_name}")
     unless status
-      OnlyofficeLoggerHelper.log("Nginx server on #{StaticData.nginx_url} can not send files fom #{StaticData::TMP_FOLDER} folder")
+      OnlyofficeLoggerHelper.log(
+        "Nginx server on #{StaticData.nginx_url}" \
+        "can not send files from #{StaticData::TMP_FOLDER} folder"
+      )
     end
     status
   end
 
-  def self.s3_available?
+  def self.s3_available?(tmp_dir)
     s3 = OnlyofficeS3Wrapper::AmazonS3Wrapper.new(bucket_name: 'conversion-testing-files', region: 'us-east-1')
-    path = s3.download_file_by_name('docx/Doc8.docx', './files_tmp')
+    path = s3.download_file_by_name('docx/Doc8.docx', tmp_dir)
     File.file?(path) && File.size(path) > 1000
   end
 

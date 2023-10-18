@@ -3,7 +3,6 @@
 require './spec/spec_helper'
 require 'nokogiri'
 
-FileHelper.clear_dir 'files_tmp'
 palladium = PalladiumHelper.new DocumentServerHelper.get_version, 'Documents to Ooxml'
 result_sets = palladium.get_result_sets StaticData::POSITIVE_STATUSES
 files = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_files.json'))['documents_to_ooxml']
@@ -12,8 +11,7 @@ ooxml_formats = %w[docx xlsx pptx]
 describe 'Convert documents to ooxml format by convert service' do
   before do
     @metadata = nil
-    @tmp_dir = File.join(Dir.pwd, 'files_tmp', "tmp_#{Time.now.to_i}_#{rand(1000)}")
-    Dir.mkdir(@tmp_dir)
+    @tmp_dir = FileHelper.create_tmp_dir
   end
 
   files.each do |s3_file_path|

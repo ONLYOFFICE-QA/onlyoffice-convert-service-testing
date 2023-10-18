@@ -6,14 +6,15 @@ require 'net/http'
 
 # class with methods for working with files
 class FileHelper
-  # delete all files and folders from dir
-  def self.clear_dir(dir)
-    FileUtils.rm_rf("#{dir}/.", secure: true)
-  end
-
   # create test file in folder
   def self.create_file(filepath)
     FileUtils.touch(filepath)
+  end
+
+  def self.create_tmp_dir
+    tmp_dir = File.join(StaticData::TMP_FOLDER, "tmp_#{Time.now.to_i}_#{rand(10_000)}")
+    FileUtils.mkdir_p(tmp_dir)
+    tmp_dir
   end
 
   # @param file_name [String] Accepts file name

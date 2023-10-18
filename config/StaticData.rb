@@ -20,9 +20,9 @@ class StaticData
   MIN_XLSB_IMAGE_SIZE = 6021
   MIN_XML_IMAGE_SIZE = 11_932
 
-  TMP_FOLDER = 'files_tmp'
+  TMP_FOLDER = File.join(Dir.pwd, 'files_tmp')
 
-  EXCEPTION_FILES = JSON.load_file("#{Dir.pwd}/config/exception_file.json")
+  EXCEPTION_FILES = JSON.load_file(File.join(Dir.pwd, 'assets', 'exception_file.json'))
 
   INVALID_TOKEN_ERROR = '-8'
 
