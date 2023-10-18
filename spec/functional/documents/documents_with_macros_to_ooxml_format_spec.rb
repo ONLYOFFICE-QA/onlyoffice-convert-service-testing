@@ -5,7 +5,8 @@ require 'nokogiri'
 
 palladium = PalladiumHelper.new DocumentServerHelper.get_version, 'Documents With Macros to Ooxml'
 result_sets = palladium.get_result_sets StaticData::POSITIVE_STATUSES
-files = StaticData::DOCUMENTS['documents_with_macros']
+files = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_files.json'))['documents_with_macros']
+odf_formats = %w[odt odp ods]
 
 describe 'Convert documents with macros to ooxml format by convert service' do
   before do
@@ -20,13 +21,14 @@ describe 'Convert documents with macros to ooxml format by convert service' do
     next if result_sets.include?(test_name)
 
     it test_name do
-      pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=61652') if input_format == 'odt'
+      pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=61652') if odf_formats.include?(input_format)
+      pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=64779') if s3_file_path == 'ppt/test_macros.ppt'
       file_path = s3.download_file_by_name(s3_file_path, @tmp_dir)
       @metadata = converter.perform_convert(url: file_uri(file_path), outputtype: 'ooxml')[:data]
       data = Nokogiri::XML(@metadata)
       expect(data.at('FileResult/FileUrl').text).not_to be_nil
       expect(data.at('FileResult/FileUrl').text).not_to be_empty
-      expect(data.at('FileResult/FileType').text).to eq('docm')
+      expect(data.at('FileResult/FileType').text).to end_with('m')
       result_path = File.join(@tmp_dir, "#{File.basename(s3_file_path)}.#{data.at('FileResult/FileType').text}")
       FileHelper.download_file(data.at('FileResult/FileUrl').text, result_path)
       expect(File).to exist(result_path)

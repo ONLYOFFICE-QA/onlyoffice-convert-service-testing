@@ -3,14 +3,17 @@
 require './spec/spec_helper'
 require 'nokogiri'
 
+FileHelper.clear_dir 'files_tmp'
 palladium = PalladiumHelper.new DocumentServerHelper.get_version, 'Documents to Ooxml'
 result_sets = palladium.get_result_sets StaticData::POSITIVE_STATUSES
-files = StaticData::DOCUMENTS['documents_to_ooxml']
+files = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_files.json'))['documents_to_ooxml']
+ooxml_formats = %w[docx xlsx pptx]
 
-describe 'Convert documents to ooxml by convert service' do
+describe 'Convert documents to ooxml format by convert service' do
   before do
     @metadata = nil
-    @tmp_dir = FileHelper.create_tmp_dir
+    @tmp_dir = File.join(Dir.pwd, 'files_tmp', "tmp_#{Time.now.to_i}_#{rand(1000)}")
+    Dir.mkdir(@tmp_dir)
   end
 
   files.each do |s3_file_path|
@@ -23,7 +26,7 @@ describe 'Convert documents to ooxml by convert service' do
       data = Nokogiri::XML(@metadata)
       expect(data.at('FileResult/FileUrl').text).not_to be_nil
       expect(data.at('FileResult/FileUrl').text).not_to be_empty
-      expect(data.at('FileResult/FileType').text).to eq('docx')
+      expect(ooxml_formats).to include(data.at('FileResult/FileType').text)
       result_path = File.join(@tmp_dir, "#{File.basename(s3_file_path)}.#{data.at('FileResult/FileType').text}")
       FileHelper.download_file(data.at('FileResult/FileUrl').text, result_path)
       expect(File).to exist(result_path)
