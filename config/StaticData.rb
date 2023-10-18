@@ -22,11 +22,9 @@ class StaticData
 
   TMP_FOLDER = File.join(Dir.pwd, 'files_tmp')
 
-  INVALID_TOKEN_ERROR = '-8'
+  EXCEPTION_FILES = JSON.load_file(File.join(Dir.pwd, 'assets', 'exception_file.json'))
 
-  PRESENTATIONS = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_presentations.json'))
-  DOCUMENTS = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_documents.json'))
-  SPREADSHEETS = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_spreadsheets.json'))
+  INVALID_TOKEN_ERROR = '-8'
 
   def self.jwt_key_in_env?
     ENV.key?('DOCUMENTSERVER_JWT') && ENV.fetch('DOCUMENTSERVER_JWT', '') != ''
