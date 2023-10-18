@@ -84,5 +84,39 @@
     "ods/protected_document[pass123].ods",
     "ots/protected_document[pass123].ots",
     "xls/protected_document[pass123].xls"
+  ],
+
+  "documents_with_macros": [
+    "xls/test_macros.xls",
+    "odt/test_macros.odt",
+    "ods/test_macros.ods",
+    "odp/test_macros.odp",
+    "doc/test_macros.doc"
+  ],
+
+  "documents_to_ooxml": [
+    "dot/0 (1).dot",
+    "doc/_4__.doc",
+    "ott/10grey.ott",
+    "odt/11.odt",
+    "txt/3_WMAPI.txt",
+    "dps/Office2010.dps",
+    "dpt/Testtesttest.dpt",
+    "wps/document wps writer 02Test.wps",
+    "wpt/template_wps_writer 02Test.wpt",
+    "fodp/Banki.fodp",
+    "otp/Alizarin.otp",
+    "pot/VP.pot",
+    "ppt/1.ppt",
+    "sxi/3_A-IMA.sxi",
+    "et/Weekly Class Attendance Tracking1.et",
+    "ett/Realiz_05_10_2022_093106.ett",
+    "fods/DataPilotSampleLinked_GETPIVOTDATA.fods",
+    "ods/_Aux. Enferm A.ods",
+    "ots/black_white.ots",
+    "sxc/5.sxc",
+    "xls/_.xls",
+    "xlt/cwods.xlt",
+    "xltx/Расписание смен1.xltx"
   ]
 }
