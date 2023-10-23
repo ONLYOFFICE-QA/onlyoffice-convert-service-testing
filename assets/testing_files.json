@@ -26,7 +26,7 @@
     "wps/document wps writer 02Test.wps",
     "wpt/template_wps_writer 02Test.wpt",
     "xps/0inDashArray.xps",
-    "xml/01-launchers.xml"
+    "xml/xml_document_Word.xml"
   ],
 
   "presentations": [
@@ -120,7 +120,8 @@
     "xls/_.xls",
     "xlt/cwods.xlt",
     "xltx/Расписание смен1.xltx",
-    "xml/xml_spreadsheet_2003_6.xml"
+    "xml/xml_spreadsheet_2003_6.xml",
+    "xml/xml_document_Word.xml"
   ],
 
     "documents_to_odf": [
@@ -151,6 +152,7 @@
     "xlt/cwods.xlt",
     "xltx/Расписание смен1.xltx",
     "xlsx/__ (2).xlsx",
-    "xml/xml_spreadsheet_2003_6.xml"
+    "xml/xml_spreadsheet_2003_6.xml",
+    "xml/xml_document_Word.xml"
     ]
 }
