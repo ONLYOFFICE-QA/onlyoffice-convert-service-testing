@@ -22,7 +22,7 @@ describe 'Convert documents with macros to ooxml format by convert service' do
 
     it test_name do
       pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=61652') if odf_formats.include?(input_format)
-      pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=64779') if s3_file_path == 'ppt/test_macros.ppt'
+      pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=65516') if s3_file_path == 'ppt/test_macros.ppt'
       file_path = s3.download_file_by_name(s3_file_path, @tmp_dir)
       @metadata = converter.perform_convert(url: file_uri(file_path), outputtype: 'ooxml')[:data]
       data = Nokogiri::XML(@metadata)
