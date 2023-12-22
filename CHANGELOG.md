@@ -10,3 +10,4 @@
 ### Changes
 
 * Check `dependabot` at 8:00 Moscow time daily
+* Drop `ruby-2.7` support, since it's EOL
