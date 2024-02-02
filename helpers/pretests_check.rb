@@ -43,7 +43,7 @@ class PretestsCheck
   def self.s3_files_exists?
     s3 = OnlyofficeS3Wrapper::AmazonS3Wrapper.new(bucket_name: 'conversion-testing-files', region: 'us-east-1')
     all_files = s3.get_files_by_prefix
-    StaticData::TESTING_FILES.each do |_, value|
+    StaticData::TESTING_FILES.each_value do |value|
       value.each do |file|
         return false unless all_files.include?(file)
       end
