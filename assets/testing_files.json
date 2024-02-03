@@ -124,7 +124,7 @@
     "xml/xml_document_Word.xml"
   ],
 
-    "documents_to_odf": [
+  "documents_to_odf": [
     "docx/1110.docx",
     "dotx/01 Test (2010).dotx",
     "dot/0 (1).dot",
