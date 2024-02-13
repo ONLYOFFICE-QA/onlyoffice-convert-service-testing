@@ -1,0 +1,63 @@
+{
+  "spreadsheets": [
+    "csv/NSE_NIFTY.csv",
+    "et/Weekly Class Attendance Tracking1.et",
+    "ett/Realiz_05_10_2022_093106.ett",
+    "fods/DataPilotSampleLinked_GETPIVOTDATA.fods",
+    "ods/_Aux. Enferm A.ods",
+    "ots/black_white.ots",
+    "sxc/5.sxc",
+    "xls/_.xls",
+    "xlsb/_2-1_1.xlsb",
+    "xlsm/_3_1.xlsm",
+    "xlt/cwods.xlt",
+    "xltm/123_1 (3).xltm",
+    "xlsx/__ (2).xlsx",
+    "xltx/Расписание смен1.xltx",
+    "xml/xml_spreadsheet_2003_6.xml"
+  ],
+
+  "protected_spreadsheets": [
+    "xlsx/test[pass111].xlsx",
+    "ods/protected_document[pass123].ods",
+    "ots/protected_document[pass123].ots",
+    "xls/protected_document[pass123].xls"
+  ],
+
+  "spreadsheets_with_macros": [
+    "xls/test_macros.xls",
+    "ods/test_macros.ods"
+  ],
+
+  "spreadsheets_to_ooxml": [
+    "csv/NSE_NIFTY.csv",
+    "et/Weekly Class Attendance Tracking1.et",
+    "ett/Realiz_05_10_2022_093106.ett",
+    "fods/DataPilotSampleLinked_GETPIVOTDATA.fods",
+    "ods/_Aux. Enferm A.ods",
+    "ots/black_white.ots",
+    "sxc/5.sxc",
+    "xls/_.xls",
+    "xlt/cwods.xlt",
+    "xltx/Расписание смен1.xltx",
+    "xml/xml_spreadsheet_2003_6.xml"
+  ],
+
+  "spreadsheets_to_odf": [
+    "csv/NSE_NIFTY.csv",
+    "et/Weekly Class Attendance Tracking1.et",
+    "ett/Realiz_05_10_2022_093106.ett",
+    "fods/DataPilotSampleLinked_GETPIVOTDATA.fods",
+    "ods/_Aux. Enferm A.ods",
+    "ots/black_white.ots",
+    "sxc/5.sxc",
+    "xls/_.xls",
+    "xlsb/_2-1_1.xlsb",
+    "xlsm/_3_1.xlsm",
+    "xlt/cwods.xlt",
+    "xltm/123_1 (3).xltm",
+    "xlsx/__ (2).xlsx",
+    "xltx/Расписание смен1.xltx",
+    "xml/xml_spreadsheet_2003_6.xml"
+  ]
+}

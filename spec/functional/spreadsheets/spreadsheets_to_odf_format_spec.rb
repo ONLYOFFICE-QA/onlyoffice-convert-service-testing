@@ -3,12 +3,11 @@
 require './spec/spec_helper'
 require 'nokogiri'
 
-palladium = PalladiumHelper.new DocumentServerHelper.get_version, 'Documents to odf'
+palladium = PalladiumHelper.new DocumentServerHelper.get_version, 'Spreadsheets to odf'
 result_sets = palladium.get_result_sets StaticData::POSITIVE_STATUSES
-files = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_files.json'))['documents_to_odf']
-odf_formats = %w[odt ods odp]
+files = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_spreadsheets.json'))['spreadsheets_to_odf']
 
-describe 'Convert documents to odf format by convert service' do
+describe 'Convert spreadsheets to odf by convert service' do
   before do
     @metadata = nil
     @tmp_dir = FileHelper.create_tmp_dir
@@ -24,7 +23,7 @@ describe 'Convert documents to odf format by convert service' do
       data = Nokogiri::XML(@metadata)
       expect(data.at('FileResult/FileUrl').text).not_to be_nil
       expect(data.at('FileResult/FileUrl').text).not_to be_empty
-      expect(odf_formats).to include(data.at('FileResult/FileType').text)
+      expect(data.at('FileResult/FileType').text).to eq('ods')
       result_path = File.join(@tmp_dir, "#{File.basename(s3_file_path)}.#{data.at('FileResult/FileType').text}")
       FileHelper.download_file(data.at('FileResult/FileUrl').text, result_path)
       expect(File).to exist(result_path)
