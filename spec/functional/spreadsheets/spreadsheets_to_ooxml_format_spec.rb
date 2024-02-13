@@ -5,7 +5,7 @@ require 'nokogiri'
 
 palladium = PalladiumHelper.new DocumentServerHelper.get_version, 'Spreadsheets to Ooxml'
 result_sets = palladium.get_result_sets StaticData::POSITIVE_STATUSES
-files = StaticData::SPREADSHEETS['spreadsheets_to_ooxml']
+files = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_spreadsheets.json'))['spreadsheets_to_ooxml']
 
 describe 'Convert spreadsheets to ooxml format by convert service' do
   before do

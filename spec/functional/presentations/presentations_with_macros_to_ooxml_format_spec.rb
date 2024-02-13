@@ -7,7 +7,6 @@ palladium = PalladiumHelper.new DocumentServerHelper.get_version, 'Presentations
 result_sets = palladium.get_result_sets StaticData::POSITIVE_STATUSES
 files = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_presentations.json'))['presentations_with_macros']
 
-
 describe 'Convert presentations with macros to ooxml by convert service' do
   before do
     @metadata = nil

@@ -5,7 +5,7 @@ require 'nokogiri'
 
 palladium = PalladiumHelper.new DocumentServerHelper.get_version, 'Spreadsheets With Macros to Ooxml'
 result_sets = palladium.get_result_sets StaticData::POSITIVE_STATUSES
-files = StaticData::SPREADSHEETS['spreadsheets_with_macros']
+files = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_spreadsheets.json'))['spreadsheets_with_macros']
 
 describe 'Convert spreadsheets with macros to ooxml format by convert service' do
   before do
