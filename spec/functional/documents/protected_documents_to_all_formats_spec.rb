@@ -4,7 +4,7 @@ require './spec/spec_helper'
 
 palladium = PalladiumHelper.new DocumentServerHelper.get_version, 'Protected Documents to All'
 result_sets = palladium.get_result_sets StaticData::POSITIVE_STATUSES
-files = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_files.json'))['protected_documents']
+files = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_documents.json'))['protected_documents']
 output_formats = JSON.load_file(File.join(Dir.pwd, 'assets', 'output_formats.json'))
 
 describe 'Convert protected documents to all formats by convert service' do

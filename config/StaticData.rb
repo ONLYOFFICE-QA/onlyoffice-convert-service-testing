@@ -22,9 +22,6 @@ class StaticData
 
   TMP_FOLDER = File.join(Dir.pwd, 'files_tmp')
 
-  EXCEPTION_FILES = JSON.load_file(File.join(Dir.pwd, 'assets', 'exception_file.json'))
-  TESTING_FILES = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_files.json'))
-
   INVALID_TOKEN_ERROR = '-8'
 
   def self.jwt_key_in_env?
