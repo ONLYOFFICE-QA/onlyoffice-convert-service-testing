@@ -24,6 +24,10 @@ class StaticData
 
   INVALID_TOKEN_ERROR = '-8'
 
+  PRESENTATIONS = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_presentations.json'))
+  DOCUMENTS = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_documents.json'))
+  SPREADSHEETS = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_spreadsheets.json'))
+
   def self.jwt_key_in_env?
     ENV.key?('DOCUMENTSERVER_JWT') && ENV.fetch('DOCUMENTSERVER_JWT', '') != ''
   end

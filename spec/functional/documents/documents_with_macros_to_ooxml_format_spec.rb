@@ -5,7 +5,7 @@ require 'nokogiri'
 
 palladium = PalladiumHelper.new DocumentServerHelper.get_version, 'Documents With Macros to Ooxml'
 result_sets = palladium.get_result_sets StaticData::POSITIVE_STATUSES
-files = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_documents.json'))['documents_with_macros']
+files = StaticData::DOCUMENTS['documents_with_macros']
 
 describe 'Convert documents with macros to ooxml format by convert service' do
   before do
