@@ -5,7 +5,7 @@ require 'nokogiri'
 
 palladium = PalladiumHelper.new DocumentServerHelper.get_version, 'Spreadsheets to odf'
 result_sets = palladium.get_result_sets StaticData::POSITIVE_STATUSES
-files = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_spreadsheets.json'))['spreadsheets_to_odf']
+files = StaticData::SPREADSHEETS['spreadsheets_to_odf']
 
 describe 'Convert spreadsheets to odf by convert service' do
   before do

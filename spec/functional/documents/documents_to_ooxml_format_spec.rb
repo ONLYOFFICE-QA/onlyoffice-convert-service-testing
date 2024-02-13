@@ -5,7 +5,7 @@ require 'nokogiri'
 
 palladium = PalladiumHelper.new DocumentServerHelper.get_version, 'Documents to Ooxml'
 result_sets = palladium.get_result_sets StaticData::POSITIVE_STATUSES
-files = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_documents.json'))['documents_to_ooxml']
+files = StaticData::DOCUMENTS['documents_to_ooxml']
 
 describe 'Convert documents to ooxml by convert service' do
   before do

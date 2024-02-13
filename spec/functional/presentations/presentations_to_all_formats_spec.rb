@@ -4,7 +4,7 @@ require './spec/spec_helper'
 
 palladium = PalladiumHelper.new DocumentServerHelper.get_version, 'Presentations to All'
 result_sets = palladium.get_result_sets StaticData::POSITIVE_STATUSES
-files = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_presentations.json'))['presentations']
+files = StaticData::PRESENTATIONS['presentations']
 output_formats = JSON.load_file(File.join(Dir.pwd, 'assets', 'output_formats.json'))
 
 describe 'Convert presentations to all formats by convert service' do
