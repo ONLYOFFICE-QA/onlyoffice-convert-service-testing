@@ -24,6 +24,7 @@ class StaticData
 
   INVALID_TOKEN_ERROR = '-8'
 
+  OUTPUT_FORMATS = JSON.load_file(File.join(Dir.pwd, 'assets', 'output_formats.json'))
   PRESENTATIONS = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_presentations.json'))
   DOCUMENTS = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_documents.json'))
   SPREADSHEETS = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_spreadsheets.json'))

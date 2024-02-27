@@ -5,7 +5,7 @@ require './spec/spec_helper'
 palladium = PalladiumHelper.new DocumentServerHelper.get_version, 'Protected Spreadsheets to All'
 result_sets = palladium.get_result_sets StaticData::POSITIVE_STATUSES
 files = StaticData::SPREADSHEETS['protected_spreadsheets']
-output_formats = JSON.load_file(File.join(Dir.pwd, 'assets', 'output_formats.json'))
+output_formats = StaticData::OUTPUT_FORMATS
 
 describe 'Convert protected spreadsheets to all formats by convert service' do
   before do

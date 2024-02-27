@@ -5,7 +5,7 @@ require './spec/spec_helper'
 palladium = PalladiumHelper.new DocumentServerHelper.get_version, 'Protected Presentations to All'
 result_sets = palladium.get_result_sets StaticData::POSITIVE_STATUSES
 files = StaticData::PRESENTATIONS['protected_presentations']
-output_formats = JSON.load_file(File.join(Dir.pwd, 'assets', 'output_formats.json'))
+output_formats = StaticData::OUTPUT_FORMATS
 
 describe 'Convert protected presentations to all formats by convert service' do
   before do
