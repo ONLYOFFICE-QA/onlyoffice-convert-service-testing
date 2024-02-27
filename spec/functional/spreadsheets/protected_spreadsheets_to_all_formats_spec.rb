@@ -24,7 +24,7 @@ describe 'Convert protected spreadsheets to all formats by convert service' do
       it test_name do
         file_path = s3.download_file_by_name(s3_file_path, @tmp_dir)
         result_path = File.join(@tmp_dir, "#{File.basename(s3_file_path)}.#{out_format}")
-        password = File.basename(s3_file_path).match(/\[pass(\d+)\]/)[1]
+        password = File.basename(s3_file_path).match(/\[pass(\d+)\]/)&.[](1)
         @metadata = converter.perform_convert(url: file_uri(file_path), outputtype: out_format, password: password)
         expect(@metadata[:url]).not_to be_nil
         expect(@metadata[:url]).not_to be_empty
