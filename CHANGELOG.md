@@ -2,6 +2,14 @@
 
 ## master (unreleased)
 
+## (2024-02-27)
+
+### Changes
+
+* Rewritten tests for more efficient testing of conversion api
+
+## (2023-12-22)
+
 ### New Features
 
 * Add `markdownlint` check in CI

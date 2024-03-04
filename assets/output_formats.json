@@ -1,0 +1,60 @@
+{
+  "documents": [
+    "bmp",
+    "docm",
+    "docx",
+    "docxf",
+    "dotm",
+    "dotx",
+    "epub",
+    "fb2",
+    "gif",
+    "html",
+    "jpg",
+    "odt",
+    "ott",
+    "pdf",
+    "png",
+    "rtf",
+    "txt"
+  ],
+
+  "spreadsheets":[
+    "bmp",
+    "csv",
+    "gif",
+    "jpg",
+    "ods",
+    "ots",
+    "pdf",
+    "png",
+    "xlsm",
+    "xlsx",
+    "xltm",
+    "xltx"
+  ],
+
+  "presentations": [
+    "bmp",
+    "gif",
+    "jpg",
+    "odp",
+    "otp",
+    "pdf",
+    "png",
+    "potm",
+    "potx",
+    "ppsm",
+    "ppsx",
+    "pptm",
+    "pptx"
+  ],
+
+  "djvu": [
+    "bmp",
+    "gif",
+    "jpg",
+    "pdf",
+    "png"
+  ]
+}

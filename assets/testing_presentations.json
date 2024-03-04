@@ -1,0 +1,60 @@
+{
+  "presentations": [
+    "dps/Office2010.dps",
+    "dpt/Testtesttest.dpt",
+    "fodp/Banki.fodp",
+    "otp/Alizarin.otp",
+    "pot/VP.pot",
+    "potm/13lex_elsie.potm",
+    "potx/13lex_elsie.potx",
+    "pptm/RSA.pptm",
+    "odp/04_ODFWS2009_South_Africa.odp",
+    "pps/test.pps",
+    "ppsm/Москва.ppsm",
+    "ppsx/япония.ppsx",
+    "ppt/1.ppt",
+    "pptx/2.pptx",
+    "sxi/3_A-IMA.sxi"
+  ],
+
+  "protected_presentations": [
+    "odp/Pass_impress_libre_[pass111].odp",
+    "ppt/Test[pass123456].ppt",
+    "pptx/Protected_Documents[pass123].pptx"
+  ],
+
+  "presentations_with_macros": [
+    "odp/test_macros.odp",
+    "ppt/test_macros.ppt"
+  ],
+
+  "presentations_to_ooxml": [
+    "dps/Office2010.dps",
+    "dpt/Testtesttest.dpt",
+    "odp/04_ODFWS2009_South_Africa.odp",
+    "fodp/Banki.fodp",
+    "otp/Alizarin.otp",
+    "pot/VP.pot",
+    "ppt/presentation_without_macros.ppt",
+    "pps/test.pps",
+    "sxi/3_A-IMA.sxi"
+  ],
+
+  "presentations_to_odf": [
+    "dps/Office2010.dps",
+    "dpt/Testtesttest.dpt",
+    "fodp/Banki.fodp",
+    "otp/Alizarin.otp",
+    "pot/VP.pot",
+    "potm/13lex_elsie.potm",
+    "potx/13lex_elsie.potx",
+    "pptm/RSA.pptm",
+    "odp/04_ODFWS2009_South_Africa.odp",
+    "pps/test.pps",
+    "ppsm/Москва.ppsm",
+    "ppsx/япония.ppsx",
+    "ppt/1.ppt",
+    "pptx/2.pptx",
+    "sxi/3_A-IMA.sxi"
+  ]
+}

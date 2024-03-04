@@ -20,11 +20,14 @@ class StaticData
   MIN_XLSB_IMAGE_SIZE = 6021
   MIN_XML_IMAGE_SIZE = 11_932
 
-  TMP_FOLDER = 'files_tmp'
-
-  EXCEPTION_FILES = JSON.load_file("#{Dir.pwd}/config/exception_file.json")
+  TMP_FOLDER = File.join(Dir.pwd, 'files_tmp')
 
   INVALID_TOKEN_ERROR = '-8'
+
+  OUTPUT_FORMATS = JSON.load_file(File.join(Dir.pwd, 'assets', 'output_formats.json'))
+  PRESENTATIONS = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_presentations.json'))
+  DOCUMENTS = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_documents.json'))
+  SPREADSHEETS = JSON.load_file(File.join(Dir.pwd, 'assets', 'testing_spreadsheets.json'))
 
   def self.jwt_key_in_env?
     ENV.key?('DOCUMENTSERVER_JWT') && ENV.fetch('DOCUMENTSERVER_JWT', '') != ''

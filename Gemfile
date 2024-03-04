@@ -9,6 +9,7 @@ gem 'onlyoffice_s3_wrapper', '>= 0.6.0'
 gem 'onlyoffice_testrail_wrapper'
 gem 'ooxml_parser'
 gem 'palladium'
+gem 'parallel_tests'
 gem 'rspec'
 gem 'rspec_passed_time_formatter'
 

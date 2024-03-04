@@ -32,7 +32,9 @@ RSpec.configure do |config|
 
     return @converter = DocumentServerHelper.jwt_from_env_converter if StaticData.jwt_key_in_env?
 
-    @converter = DocumentServerHelper.jwt_from_file_converter if StaticData.jwt_key_in_config_file?
+    return @converter = DocumentServerHelper.jwt_from_file_converter if StaticData.jwt_key_in_config_file?
+
+    raise('Jwt is enabled, but the jwt key is not found on your computer. Please set the jwt key.')
   end
 
   config.expect_with :rspec do |expectations|
@@ -51,7 +53,7 @@ end
 # @return [String] URI address file in nginx
 # @note Changes the name of a temporary file
 def file_uri(file_path)
-  tmp_name = FileHelper.file_rename(File.basename(file_path))
-  link = "#{StaticData.nginx_url}/#{tmp_name}"
+  tmp_name = FileHelper.file_rename(file_path)
+  link = "#{StaticData.nginx_url}/#{File.basename(File.dirname(file_path))}/#{tmp_name}"
   Addressable::URI.parse(link).normalize.to_s
 end
