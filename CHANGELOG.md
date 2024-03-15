@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### New Features
+
+* Add `dependabot` check for `GitHub Actions`
+
 ## (2024-02-27)
 
 ### Changes
