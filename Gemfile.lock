@@ -53,7 +53,7 @@ GEM
       ooxml_decrypt (~> 1)
       rubyzip (~> 2)
     palladium (1.1.0)
-    parallel (1.26.1)
+    parallel (1.26.2)
     parallel_tests (4.7.1)
       parallel
     parser (3.3.4.2)
