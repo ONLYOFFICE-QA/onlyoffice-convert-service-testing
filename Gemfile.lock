@@ -97,7 +97,7 @@ GEM
     ruby-ole (1.2.13.1)
     ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
-    unicode-display_width (2.5.0)
+    unicode-display_width (2.6.0)
 
 PLATFORMS
   ruby
