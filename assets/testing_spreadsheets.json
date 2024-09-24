@@ -1,6 +1,6 @@
 {
   "spreadsheets": [
-    "csv/NSE_NIFTY_delimeter_,.csv",
+    "csv/NSE_NIFTY_[del%2c].csv",
     "et/Weekly Class Attendance Tracking1.et",
     "ett/Realiz_05_10_2022_093106.ett",
     "fods/DataPilotSampleLinked_GETPIVOTDATA.fods",
@@ -30,7 +30,7 @@
   ],
 
   "spreadsheets_to_ooxml": [
-    "csv/NSE_NIFTY_delimeter_,.csv",
+    "csv/NSE_NIFTY_[del%2c].csv",
     "et/Weekly Class Attendance Tracking1.et",
     "ett/Realiz_05_10_2022_093106.ett",
     "fods/DataPilotSampleLinked_GETPIVOTDATA.fods",
@@ -44,7 +44,7 @@
   ],
 
   "spreadsheets_to_odf": [
-    "csv/NSE_NIFTY_delimeter_,.csv",
+    "csv/NSE_NIFTY_[del%2c].csv",
     "et/Weekly Class Attendance Tracking1.et",
     "ett/Realiz_05_10_2022_093106.ett",
     "fods/DataPilotSampleLinked_GETPIVOTDATA.fods",
