@@ -1,4 +1,4 @@
-FROM ruby:3.2
+FROM ruby:3.4
 
 MAINTAINER Dmitriy.Rotatii "kvazilife@gmail.com"
 ENV S3_KEY ""
