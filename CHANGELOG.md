@@ -6,6 +6,12 @@
 
 * Add `dependabot` check for `GitHub Actions`
 * Add `ruby-3.3` to CI
+* Add `ruby-3.4` to CI
+* Update default Dockerfile to `ruby-3.4`
+
+### Changes
+
+* Remove `ruby-3.0` from CI, since it's EOLed
 
 ## (2024-02-27)
 
