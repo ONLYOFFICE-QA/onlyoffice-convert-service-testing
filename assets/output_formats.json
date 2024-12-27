@@ -57,5 +57,11 @@
     "jpg",
     "pdf",
     "png"
+  ],
+
+  "vsdx": [
+    "jpg",
+    "pdf",
+    "png"
   ]
 }
