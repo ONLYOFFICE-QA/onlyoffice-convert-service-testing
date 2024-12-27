@@ -26,7 +26,8 @@
     "wps/document wps writer 02Test.wps",
     "wpt/template_wps_writer 02Test.wpt",
     "xps/0inDashArray.xps",
-    "xml/xml_document_Word.xml"
+    "xml/xml_document_Word.xml",
+    "vsdx/FindReplaceText.vsdx"
   ],
 
   "protected_documents": [
