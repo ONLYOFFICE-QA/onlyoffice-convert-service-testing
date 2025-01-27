@@ -27,7 +27,9 @@
     "wpt/template_wps_writer 02Test.wpt",
     "xps/0inDashArray.xps",
     "xml/xml_document_Word.xml",
-    "vsdx/FindReplaceText.vsdx"
+    "vsdx/FindReplaceText.vsdx",
+    "hwp/test_endnote.hwp",
+    "hwpx/2022.hwpx"
   ],
 
   "protected_documents": [
