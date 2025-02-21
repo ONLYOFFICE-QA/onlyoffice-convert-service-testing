@@ -24,4 +24,4 @@ jobs:
       - name: Run tests
         run: rspec ./units/test_helpers/test_image_helper_spec.rb --default-path ./units
       - name: Check source files using `rubocop`
-        run: rubocop
+        run: bundle exec rubocop
